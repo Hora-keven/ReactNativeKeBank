@@ -1,9 +1,9 @@
 
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles'
-import Login from '../Login'
 export default function Home({navigation}){
     return(
+
     <View style={styles.container}>
         <View style={styles.window}>
             <View style={styles.nameSlogan}>
@@ -21,18 +21,19 @@ export default function Home({navigation}){
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.title}>
-                    <TouchableOpacity style={styles.title}>
+    
+
+                <View style={styles.title_two}>
+                    <TouchableOpacity  onPress={()=>{navigation.navigate('login_old_user')}} style={styles.title}>
                     <Text style={styles.txtInformation}>Já sou </Text>
                     <Text style={styles.secondInformationTxt}>cadastrado</Text>
                     </TouchableOpacity>
+
               
             </View>
         </View>
         <View style={styles.polign}></View>
    
-       
-
     </View>
     )
 }
