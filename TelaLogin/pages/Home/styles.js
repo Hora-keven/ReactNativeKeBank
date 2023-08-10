@@ -53,7 +53,12 @@ const styles = StyleSheet.create({
         textAlign:'center',
        
     },
-
+    title_two:{
+        flexDirection:'row',
+        textAlign:'center',
+        bottom:15
+    },
+    
     secondInformationTxt:{
         fontFamily:'inter',
         fontSize:22,
