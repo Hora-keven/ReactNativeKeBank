@@ -1,7 +1,7 @@
 import { View, Text, TextInput} from "react-native";
 import styles from "./styles";
 import {BsArrowRight} from "react-icons/bs"
-import { TouchableOpacity } from "react-native-web";
+import { TouchableOpacity } from "react-native";
 
 export default function Login(){
     return(
@@ -17,7 +17,7 @@ export default function Login(){
             <TextInput  style={styles.input} placeholder="Nome" />
             <TextInput  style={styles.input} placeholder="Data de nascimento: "/>
             <TextInput  style={styles.input} placeholder="Digite seu CPF: "/>
-            <TextInput  style={styles.input} placeholder="Digite seu email: "/>
+            <TextInput  style={styles.input} placeholder="Digite seu E-mail: "/>
             <TextInput  style={styles.input} placeholder="Crie sua senha: "/>
             <TextInput  style={styles.input} placeholder="Repita a senha: "/>
         </View>
@@ -26,6 +26,9 @@ export default function Login(){
                 <Text style={styles.Arrowbutton}><BsArrowRight/></Text>
             </TouchableOpacity>
        </View>
+     
+        <View style={styles.polign}></View>
+   
         </View>
     )
 }
