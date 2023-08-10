@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
+        top:90
     },
     txtInformation:{
         color:'white',
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
         marginTop:12,
         width:'70%',
         borderColor:'white',
+        top:100
 
 
     },
@@ -63,8 +65,20 @@ const styles = StyleSheet.create({
         color:'white',
         fontFamily:'inter',
         fontSize:22,
-        marginTop:12,
-        left:95
-    }
+        top:115,
+        left:115
+    },
+    polign:{
+        backgroundColor:'white',
+        width:'145%',
+        height:'40%',
+        transform:'rotate(15.5deg)',
+        position:'relative',
+        top:115,
+        right:60,
+        zIndex:10,
+        
+    },
+
 })
 export default styles;
