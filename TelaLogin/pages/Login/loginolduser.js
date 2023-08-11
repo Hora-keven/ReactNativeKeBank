@@ -20,7 +20,7 @@ export default function Login_user({navigation}){
             <TextInput  style={styles.input} placeholder="Digite sua senha: "/>
         </View>
        <View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity onPress={()=>{navigation.navigate('first')}} style={styles.button}>
                 <Text style={styles.Arrowbutton}><BsArrowRight/></Text>
             </TouchableOpacity>
        </View>

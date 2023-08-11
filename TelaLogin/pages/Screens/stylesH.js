@@ -79,6 +79,11 @@ const styles = StyleSheet.create({
         zIndex:10,
         
     },
+    img:{
+        width:'100%',
+        height:'100%',
+        zIndex:10
+    }
 
 })
 export default styles;

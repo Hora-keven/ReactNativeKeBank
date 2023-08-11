@@ -3,7 +3,8 @@ import styles from "./styles";
 import {BsArrowRight} from "react-icons/bs"
 import { TouchableOpacity } from "react-native";
 
-export default function Login(){
+export default function Login({navigation, route}){
+    const {msg} = route.params
     return(
         <View style={styles.container}>
             
@@ -13,6 +14,7 @@ export default function Login(){
                 <Text style={styles.secondPartName}>Bank</Text>
             </View>
         </View>
+     
         <View style={styles.inputs}>
             <TextInput  style={styles.input} placeholder="Nome" />
             <TextInput  style={styles.input} placeholder="Data de nascimento: "/>
@@ -22,9 +24,11 @@ export default function Login(){
             <TextInput  style={styles.input} placeholder="Repita a senha: "/>
         </View>
        <View>
-            <TouchableOpacity style={styles.button}>
+
+            <TouchableOpacity onPress={()=>{navigation.navigate('login_old_user')}} style={styles.button}>
                 <Text style={styles.Arrowbutton}><BsArrowRight/></Text>
             </TouchableOpacity>
+            
        </View>
      
         <View style={styles.polign}></View>

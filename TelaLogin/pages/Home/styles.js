@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     title_two:{
         flexDirection:'row',
         textAlign:'center',
-        bottom:15
+        bottom:10
     },
     
     secondInformationTxt:{

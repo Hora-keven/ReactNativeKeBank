@@ -1,10 +1,11 @@
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {  Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles'
-export default function Home({navigation}){
+export default function Home({navigation, route}){
     return(
 
     <View style={styles.container}>
+        
         <View style={styles.window}>
             <View style={styles.nameSlogan}>
                 <View style={styles.title}>
@@ -15,7 +16,7 @@ export default function Home({navigation}){
             </View>
 
                 <View style={styles.title}>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('login')}} style={styles.title}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('login', {msg:'Keven o mais lindo'})}} style={styles.title}>
                     <Text style={styles.txtInformation}>Novo aqui? </Text>
                     <Text style={styles.secondInformationTxt}>Cadastre-se</Text>
                     </TouchableOpacity>
