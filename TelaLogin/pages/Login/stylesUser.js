@@ -54,11 +54,14 @@ const styles = StyleSheet.create({
 
     },
     input:{
-       borderBottomWidth:1,
-       borderBottomColor:'white',
-       marginTop:20,
-       width:'100%',
-       color:'white'
+        borderWidth:0,
+        outlineWidth:0,
+        borderBottomWidth:1,
+        borderBottomColor:'white',
+        marginTop:20,
+        width:'100%',
+        color:'white',
+        backgroundColor:'#0084B4'
     
     },
     Arrowbutton:{

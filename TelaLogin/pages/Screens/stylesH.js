@@ -3,10 +3,9 @@ import { StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor:'#0084B4',
+      backgroundColor:'#fff',
       padding:0,
       margin:0,
       width:'100%'
@@ -80,9 +79,10 @@ const styles = StyleSheet.create({
         
     },
     img:{
-        width:'100%',
-        height:'100%',
-        zIndex:10
+        width:100,
+        height:100,
+    
+       
     }
 
 })
