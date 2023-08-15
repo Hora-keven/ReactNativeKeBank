@@ -14,16 +14,18 @@ export default function Login_user({navigation}){
                 <Text style={styles.secondPartName}>Bank</Text>
             </View>
         </View>
+
         <View style={styles.inputs}>
-          
             <TextInput  style={styles.input} placeholder="Digite seu CPF: "/>
             <TextInput  style={styles.input} placeholder="Digite sua senha: "/>
         </View>
+
        <View>
             <TouchableOpacity onPress={()=>{navigation.navigate('first')}} style={styles.button}>
                 <Text style={styles.Arrowbutton}><BsArrowRight/></Text>
             </TouchableOpacity>
        </View>
+       
        <View style={styles.polign}></View>
         </View>
     )

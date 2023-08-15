@@ -30,20 +30,14 @@ const styles = StyleSheet.create({
         width:'100%',
         top:90
     },
-    txtInformation:{
-        color:'white',
+    txtUser:{
+        color:'black',
         fontFamily:'inter',
         fontSize:22,
-        marginTop:30,
+        bottom:350,
+        right:120
     },
-    secondPartName:{
-        fontFamily:'inter',
-        color:'white',
-        fontSize:76
-    },
-    title:{
-        flexDirection:'row'
-    },
+   
     inputs:{
         marginTop:12,
         width:'70%',
@@ -55,35 +49,80 @@ const styles = StyleSheet.create({
     input:{
        borderBottomWidth:1,
        borderBottomColor:'white',
-       marginTop:20,
+
        width:'100%',
        color:'white'
     
     },
-    Arrowbutton:{
-        color:'white',
+    button:{
+        color:'black',
         fontFamily:'inter',
-        fontSize:22,
-        top:115,
-        left:115
+        fontSize:30,
+        left:300,
+        bottom:30,
+        width:0
+       
     },
-    polign:{
-        backgroundColor:'white',
-        width:'145%',
-        height:'40%',
-        transform:'rotate(15.5deg)',
+   
+    img:{
+        width:50,
+        height:50,
+
+       
+    },
+    containerImg:{
+        width:'80%',
+        height:'12%',
         position:'relative',
-        top:119,
-        right:60,
-        zIndex:10,
+        bottom:300,
+        right:245,
+        marginTop:510,
+        backgroundColor:'#0084B4',
+        borderRadius:4,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    information:{
+        left:125,
         
     },
-    img:{
-        width:100,
-        height:100,
-    
-       
-    }
+    rectangle:{
+        width:'88%',
+        height:'10%',
+        backgroundColor:'#F4F4F4',
+        borderRadius:4,
+        bottom:250
 
+    },
+    txtInformation:{
+        fontFamily:'inter',
+        fontSize:22,
+        left:20,
+        top:10
+       
+    },
+    window:{
+        backgroundColor:'#F4F4F4',
+        width:'88%',
+        height:'60%',
+        display:'grid',
+        gridColumms:'1fr 1fr',
+        borderRadius:4,
+        margin:0,
+        justifyContent:'center',
+        alignItems:'center',
+        bottom:200
+      
+      
+        
+    },
+    text:{
+      
+        fontFamily:'inter',
+        fontSize:22,
+        top:5
+  
+    }
+  
 })
 export default styles;
