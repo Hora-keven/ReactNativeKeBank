@@ -1,9 +1,9 @@
 import { View, Text, TextInput, Handle} from "react-native";
 import styles from "./stylesUser";
-import {BsArrowRight} from "react-icons/bs"
+import { Ionicons } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native";
 
-export default function Login_user({navigation}){
+export default function LoginUser({navigation}){
     return(
         
         <View style={styles.container}>
@@ -16,13 +16,13 @@ export default function Login_user({navigation}){
         </View>
 
         <View style={styles.inputs}>
-            <TextInput  style={styles.input} placeholder="Digite seu CPF: "/>
-            <TextInput  style={styles.input} placeholder="Digite sua senha: "/>
+            <TextInput  style={styles.input} placeholderTextColor={'white'} placeholder="Digite seu CPF: "/>
+            <TextInput  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: "/>
         </View>
 
        <View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('first')}} style={styles.button}>
-                <Text style={styles.Arrowbutton}><BsArrowRight/></Text>
+            <TouchableOpacity onPress={()=>{navigation.navigate('First')}} style={styles.button}>
+            <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward"/>
             </TouchableOpacity>
        </View>
        

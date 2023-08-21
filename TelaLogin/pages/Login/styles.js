@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontSize:76,
         color:'white',
-        fontWeight:700
+    
     },
     slogan:{
         color:'white',
@@ -55,12 +55,10 @@ const styles = StyleSheet.create({
     },
     input:{
        borderWidth:0,
-       outlineWidth:0,
        borderBottomWidth:1,
        borderBottomColor:'white',
        marginTop:20,
        width:'100%',
-       color:'white',
        backgroundColor:'#0084B4'
     
     },

@@ -1,10 +1,10 @@
 import { View, Text, TextInput} from "react-native";
 import styles from "./styles";
-import {BsArrowRight} from "react-icons/bs"
+import { Ionicons } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native";
 
-export default function Login({navigation, route}){
-    const {msg} = route.params
+export default function Login({navigation}){
+ 
     return(
         <View style={styles.container}>
             
@@ -16,17 +16,17 @@ export default function Login({navigation, route}){
         </View>
      
         <View style={styles.inputs}>
-            <TextInput  style={styles.input} placeholder="Nome" />
-            <TextInput  style={styles.input} placeholder="Data de nascimento: "/>
-            <TextInput  style={styles.input} placeholder="Digite seu CPF: "/>
-            <TextInput  style={styles.input} placeholder="Digite seu E-mail: "/>
-            <TextInput  style={styles.input} placeholder="Crie sua senha: "/>
-            <TextInput  style={styles.input} placeholder="Repita a senha: "/>
+            <TextInput  style={styles.input} placeholder="Nome" placeholderTextColor={'white'} />
+            <TextInput  style={styles.input} placeholder="Data de nascimento: "  placeholderTextColor={'white'}/>
+            <TextInput  style={styles.input} inputMode="numeric" placeholder="Digite seu CPF: " placeholderTextColor={'white'}/>
+            <TextInput  style={styles.input} placeholder="Digite seu E-mail: "  placeholderTextColor={'white'}/>
+            <TextInput  style={styles.input} placeholder="Crie sua senha: "  placeholderTextColor={'white'}/>
+            <TextInput  style={styles.input} placeholder="Repita a sua senha: "  placeholderTextColor={'white'}/>
+
         </View>
        <View>
-
-            <TouchableOpacity onPress={()=>{navigation.navigate('login_old_user')}} style={styles.button}>
-                <Text style={styles.Arrowbutton}><BsArrowRight/></Text>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Login_old_user')}} style={styles.button}>
+                <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward"/>
             </TouchableOpacity>
             
        </View>

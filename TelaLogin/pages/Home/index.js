@@ -1,7 +1,7 @@
 
 import {  Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles'
-export default function Home({navigation, route}){
+export default function Home({navigation}){
     return(
 
     <View style={styles.container}>
@@ -16,16 +16,14 @@ export default function Home({navigation, route}){
             </View>
 
                 <View style={styles.title}>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('login', {msg:'Keven o mais lindo'})}} style={styles.title}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Login')}} style={styles.title}>
                     <Text style={styles.txtInformation}>Novo aqui? </Text>
                     <Text style={styles.secondInformationTxt}>Cadastre-se</Text>
                     </TouchableOpacity>
                 </View>
 
-    
-
                 <View style={styles.title_two}>
-                    <TouchableOpacity  onPress={()=>{navigation.navigate('login_old_user')}} style={styles.title}>
+                    <TouchableOpacity  onPress={()=>{navigation.navigate('Login_old_user')}} style={styles.title}>
                     <Text style={styles.txtInformation}>Já sou </Text>
                     <Text style={styles.secondInformationTxt}>cadastrado</Text>
                     </TouchableOpacity>

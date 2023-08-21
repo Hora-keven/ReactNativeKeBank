@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontSize:76,
         color:'white',
-        fontWeight:700,
-      
+     
     },
 
     slogan:{
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
         borderRadius:3,
         width:'50%',
         textAlign:'center',
-        fontSize:22,
+        fontSize:20,
         marginBottom:12
         
     },
