@@ -25,7 +25,7 @@ export default function Login({navigation}){
 
         </View>
        <View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('Login_old_user')}} style={styles.button}>
+            <TouchableOpacity onPress={()=>{navigation.navigate('LoginUser')}} style={styles.button}>
                 <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward"/>
             </TouchableOpacity>
             

@@ -1,12 +1,12 @@
 import { View, Image, Text, TouchableOpacity, SafeAreaView, FlatList } from "react-native"
 import styles from "./styles";
-import { Ionicons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 
 
 export default function FirstScreen() {
     const [valor, setValor] = useState(0)
-    const [olho, setOlho] = useState(false)
+    const [olho, setOlho] = useState("eye-off-outline")
     var cont = 0
 
     const funcaoApp = [
@@ -27,11 +27,21 @@ export default function FirstScreen() {
             title: 'Pedir cartão'
         }
     ]
-    const Funcoes = ({title}) => (
+    const Funcoes = ({ title }) => (
         <View style={styles.function}>
-          <Text style={styles.text}>{title}</Text>
+            <Text style={styles.text}>{title}</Text>
         </View>
-      )
+    )
+    const [dolar, setDolar] = useState(0)
+
+    const url = `https://economia.awesomeapi.com.br/last/USD-BRL`
+
+    fetch(url).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+        return setDolar(data.USDBRL.high)
+
+    })
 
     return (
         <View style={styles.container}>
@@ -45,39 +55,56 @@ export default function FirstScreen() {
             </View>
             <View style={styles.rectangle}>
                 <Text style={styles.txtInformation}>Conta</Text>
-              
+
                 <Text style={styles.txtInformation}>R${valor},00</Text>
                 <TouchableOpacity onPress={() => {
-                    setOlho(true),
-                    setValor(100), cont += 1
+                    setValor(100)
+                    setOlho("eye-outline")
+                    cont += 1
                     if (cont == 1) {
-                        setOlho(false)
+                        setOlho("eye-off-outline")
                         setValor(0)
+
                     }
-                }}
-                     >
-                     <Ionicons  name="ios-arrow-forward"  size={24} style={{left:300, bottom:33} } color="black"/> 
+
+                }}>
+                    <Ionicons name={olho} size={24} style={{ left: 300, bottom: 33 }} color="black" />
                 </TouchableOpacity>
-              
+
             </View>
-                <SafeAreaView style={styles.window}>
-                    <FlatList
-            
-    
-                        data={funcaoApp}
-                        renderItem={({ item }) => {
-                            return(
+            <SafeAreaView style={styles.window}>
+                <FlatList
+                    horizontal={false}
+                    numColumns={2}
+                    data={funcaoApp}
+                    renderItem={({ item }) => {
+                        return (
+                        
                             <TouchableOpacity
-                                onPress={()=>{
-                                    <Funcoes title={item.title}/>
+                                onPress={() => {
+                                    <Funcoes title={item.title} />
                                 }}>
-                                    <Funcoes title={item.title}/>
+                                <Funcoes title={item.title} />
                             </TouchableOpacity>
-                            )
-                        }}
-                      />
-                </SafeAreaView>
-                
+                        
+                        )
+                    }}
+                />
+                <View style={styles.slides}>
+                    <Image source={require('../../assets/dolar.png')}
+                        style={styles.imgSlides} />
+                    <Text style={styles.text}>Cotação do Dólar</Text>
+                    <Text style={styles.Api}>A Cotação do dólar está ${dolar}</Text>
+                </View>
+                <View style={styles.nameSlogan}>
+                    <View style={styles.title}>
+                        <Text style={styles.txt}>Ke</Text>
+                        <Text style={styles.secondPartName}>Bank</Text>
+                    </View>
+                </View>
+            </SafeAreaView>
+
         </View>
+
     );
 }

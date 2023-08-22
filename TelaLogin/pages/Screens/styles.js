@@ -13,21 +13,25 @@ const styles = StyleSheet.create({
     txt:{
         fontFamily:'Dela gothic alone',
         textAlign:'center',
-        fontSize:76,
-        color:'white',
+        fontSize:20,
+        color:'black',
+        fontWeight:'700',
+ 
     },
-    slogan:{
-        color:'white',
-        borderRadius:3,
-        width:'50%',
-        textAlign:'center',
-        fontSize:22
+    title:{
+        flexDirection:'row'
     },
     nameSlogan:{
         justifyContent:'center',
         alignItems:'center',
-        width:'100%',
-        top:90
+        width:'100%', 
+        bottom:40,
+        left:130
+    },
+    secondPartName:{
+        fontFamily:'inter',
+        color:'black',
+        fontSize:20,
     },
     txtUser:{
         color:'black',
@@ -89,14 +93,22 @@ const styles = StyleSheet.create({
     rectangle:{
         width:'88%',
         height:'10%',
-        backgroundColor:'#F4F4F4',
-        borderRadius:4,
-        bottom:250
+        backgroundColor:'#0084B4',
+        borderRadius:8,
+        bottom:250,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
 
     },
     txtInformation:{
         fontFamily:'inter',
-        fontSize:22,
+        fontSize:20,
         left:20,
         top:10
        
@@ -108,13 +120,13 @@ const styles = StyleSheet.create({
         margin:0,
         justifyContent:'center',
         alignItems:'center',
-        bottom:200
+        bottom:230
     },
 
     text:{
-        fontFamily:'inter',
-        fontSize:22,
-        top:5,
+        fontFamily:'Raleway sans Serif',
+        fontSize:19,
+        top:23,
         textAlign:'center',
         justifyContent:'center',
   
@@ -122,10 +134,48 @@ const styles = StyleSheet.create({
 
     function:{
         marginTop:10,
-        backgroundColor:'#F4F4F4',
-        width:350,
-        height:80,    
+        backgroundColor:'#0084B4',
+        width:170,
+        height:80, 
+        marginLeft:5,
+        borderRadius:4,
+        padding:3,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
         
+    },
+    slides:{
+        backgroundColor:'#0084B4',
+        width:"99%",
+        height:"40%",
+        bottom:60,
+        position:'relative',
+        alignItems:'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        
+         
+    },
+    imgSlides:{
+        width:'90%',
+        height:'50%',
+        top:10,
+
+    },
+    Api:{
+        top:30
     }
   
 })
