@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 
 
-export default function FirstScreen() {
+export default function FirstScreen({navigation}) {
     const [valor, setValor] = useState(0)
     const [olho, setOlho] = useState("eye-off-outline")
     var cont = 0
@@ -12,7 +12,8 @@ export default function FirstScreen() {
     const funcaoApp = [
         {
             id: 1,
-            title: 'Pix'
+            title: 'Pix',
+            name: 'ScreenPix'
         },
         {
             id: 2,
@@ -27,9 +28,11 @@ export default function FirstScreen() {
             title: 'Pedir cartão'
         }
     ]
-    const Funcoes = ({ title }) => (
+    const Funcoes = ({ title, screen}) => (
         <View style={styles.function}>
             <Text style={styles.text}>{title}</Text>
+           
+            
         </View>
     )
     const [dolar, setDolar] = useState(0)
@@ -82,9 +85,9 @@ export default function FirstScreen() {
                         
                             <TouchableOpacity
                                 onPress={() => {
-                                    <Funcoes title={item.title} />
+                                    navigation.navigate(item.name)
                                 }}>
-                                <Funcoes title={item.title} />
+                                <Funcoes title={item.title} screen={item.path}  />
                             </TouchableOpacity>
                         
                         )

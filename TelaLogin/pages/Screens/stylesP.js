@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
     information:{
         left:125,
-        marginTop:80,
+        bottom:180
         
     },
     rectangle:{
@@ -168,15 +168,7 @@ const styles = StyleSheet.create({
         
          
     },
-    imgSlides:{
-        width:'90%',
-        height:'50%',
-        top:10,
 
-    },
-    Api:{
-        top:30
-    }
   
 })
 export default styles;
