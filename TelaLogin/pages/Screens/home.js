@@ -6,8 +6,9 @@ import { useState } from "react";
 
 export default function FirstScreen({navigation}) {
     const [valor, setValor] = useState(0)
-    const [olho, setOlho] = useState("eye-off-outline")
-    var cont = 0
+    const [olho, setOlho] = useState("eye-outline")
+    const [open, setOpen] = useState(false)
+
 
     const funcaoApp = [
         {
@@ -35,6 +36,18 @@ export default function FirstScreen({navigation}) {
             
         </View>
     )
+    function Olho (){
+        setOpen(true)
+        if(open){
+            setValor(100)
+            setOlho("eye-off-outline")
+            setOpen(false)
+        } else{
+            setValor(0)
+            setOlho("eye-outline")
+        }
+        
+    }
     const [dolar, setDolar] = useState(0)
 
     const url = `https://economia.awesomeapi.com.br/last/USD-BRL`
@@ -60,17 +73,7 @@ export default function FirstScreen({navigation}) {
                 <Text style={styles.txtInformation}>Conta</Text>
 
                 <Text style={styles.txtInformation}>R${valor},00</Text>
-                <TouchableOpacity onPress={() => {
-                    setValor(100)
-                    setOlho("eye-outline")
-                    cont += 1
-                    if (cont == 1) {
-                        setOlho("eye-off-outline")
-                        setValor(0)
-
-                    }
-
-                }}>
+                <TouchableOpacity onPress={Olho}>
                     <Ionicons name={olho} size={24} style={{ left: 300, bottom: 33 }} color="black" />
                 </TouchableOpacity>
 

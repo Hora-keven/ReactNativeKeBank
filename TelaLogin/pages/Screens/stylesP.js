@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
       backgroundColor:'#fff',
       padding:0,
       margin:0,
-      width:'100%'
+      width:'100%',
+      marginTop:25
     },
     txt:{
         fontFamily:'Dela gothic alone',
@@ -22,11 +23,12 @@ const styles = StyleSheet.create({
         flexDirection:'row'
     },
     nameSlogan:{
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent:'flex-end',
+        alignItems:'flex-end',
         width:'100%', 
-        bottom:40,
-        left:130
+        bottom:30,
+        right:30
+    
     },
     secondPartName:{
         fontFamily:'inter',
@@ -42,29 +44,15 @@ const styles = StyleSheet.create({
     },
    
     inputs:{
-        marginTop:12,
-        width:'70%',
-        borderColor:'white',
-        top:100
-
+        width:'85%',
+        bottom:400,
 
     },
     input:{
        borderBottomWidth:1,
-       borderBottomColor:'white',
-
+       borderBottomColor:'black',
        width:'100%',
-       color:'white'
     
-    },
-    button:{
-        color:'black',
-        fontFamily:'inter',
-        fontSize:30,
-        left:300,
-        bottom:30,
-        width:0
-       
     },
    
     img:{
@@ -87,15 +75,16 @@ const styles = StyleSheet.create({
     },
     information:{
         left:125,
-        bottom:180
+        bottom:140,
+        position:'relative'
         
     },
     rectangle:{
         width:'88%',
-        height:'10%',
+        height:'8%',
         backgroundColor:'#0084B4',
         borderRadius:8,
-        bottom:250,
+        bottom:430,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -106,13 +95,7 @@ const styles = StyleSheet.create({
         elevation: 5,
 
     },
-    txtInformation:{
-        fontFamily:'inter',
-        fontSize:20,
-        left:20,
-        top:10
-       
-    },
+  
     window:{
         width:'88%',
         height:'60%',
@@ -125,10 +108,10 @@ const styles = StyleSheet.create({
 
     text:{
         fontFamily:'Raleway sans Serif',
-        fontSize:19,
-        top:23,
+        fontSize:23,
+        top:15,
         textAlign:'center',
-        justifyContent:'center',
+        color:'white'
   
     },
 
@@ -168,7 +151,19 @@ const styles = StyleSheet.create({
         
          
     },
-
+    Arrowbutton:{
+        color:'black',
+        fontFamily:'inter',
+        fontSize:22,
+        left:155,
+        bottom:380,
+        position:'relative'
+      
+    },
+    textTitle:{
+        fontSize:23,
+        bottom:350,
+    }
   
 })
 export default styles;

@@ -8,7 +8,9 @@ const styles = StyleSheet.create({
       backgroundColor:'#fff',
       padding:0,
       margin:0,
-      width:'100%'
+      width:'100%',
+      top:50
+     
     },
     txt:{
         fontFamily:'Dela gothic alone',
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         width:'100%', 
         bottom:40,
-        left:130
+      
     },
     secondPartName:{
         fontFamily:'inter',
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     },
     information:{
         left:125,
-        marginTop:80,
+        marginTop:100,
         
     },
     rectangle:{
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
         width:"99%",
         height:"40%",
         bottom:60,
+        borderRadius:7,
         position:'relative',
         alignItems:'center',
         shadowColor: "#000",
