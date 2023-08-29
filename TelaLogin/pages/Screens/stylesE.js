@@ -9,14 +9,15 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      height:1000
+      marginTop:25
     },
+
     txt:{
         fontFamily:'Dela gothic alone',
-        textAlign:'center',
-        fontSize:20,
+        left:34,
+        fontSize:15,
         color:'black',
-        fontWeight:'700',
+       
  
     },
     title:{
@@ -26,8 +27,8 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
         alignItems:'flex-end',
         width:'100%', 
-        right:30,
-        top:150
+        bottom:30,
+        right:30
     
     },
     secondPartName:{
@@ -35,17 +36,10 @@ const styles = StyleSheet.create({
         color:'black',
         fontSize:20,
     },
-    txtUser:{
-        color:'black',
-        fontFamily:'inter',
-        fontSize:22,
-        bottom:350,
-        right:120
-    },
    
     inputs:{
         width:'85%',
-        bottom:200,
+        bottom:400,
 
     },
     input:{
@@ -55,19 +49,12 @@ const styles = StyleSheet.create({
     
     },
    
-    img:{
-        width:50,
-        height:50,
-
-       
-    },
-   
     rectangle:{
         width:'88%',
-        height:'6%',
+        height:'9%',
         backgroundColor:'#0084B4',
         borderRadius:8,
-        bottom:350,
+        marginTop:120,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -80,40 +67,39 @@ const styles = StyleSheet.create({
     },
   
     window:{
-        width:'88%',
-        height:'60%',
         marginRight:3,
         margin:0,
         justifyContent:'center',
         alignItems:'center',
-        bottom:230
+        top:150
+      
     },
 
     text:{
         fontFamily:'Raleway sans Serif',
         fontSize:23,
-        top:15,
+        top:10,
         left:10,
-        color:'black'
+        color:'white'
   
+    },
+    textT:{
+        fontFamily:'Raleway sans Serif',
+        fontSize:20,
+        top:4,
+        left:30,
+        color:'black'
     },
 
     function:{
         marginTop:10,
-        backgroundColor:'#0084B4',
-        width:170,
+        backgroundColor:'white',
+        width:350,
         height:80, 
         marginLeft:3,
         borderRadius:7,
         padding:3,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        borderWidth:2,
         
     },
     slides:{
@@ -139,13 +125,16 @@ const styles = StyleSheet.create({
         fontFamily:'inter',
         fontSize:22,
         left:155,
-        bottom:180,
+        bottom:380,
         position:'relative'
       
     },
     textTitle:{
         fontSize:23,
-        bottom:150,
+        bottom:350,
+    },
+    containerTrans:{
+        backgroundColor:'black',
     }
   
 })

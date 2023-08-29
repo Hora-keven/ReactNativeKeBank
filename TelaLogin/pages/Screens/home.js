@@ -2,9 +2,10 @@ import { View, Image, Text, TouchableOpacity, SafeAreaView, FlatList } from "rea
 import styles from "./styles";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
+import { ScrollView } from "react-native";
+import * as Animatable from 'react-native-animatable'
 
-
-export default function FirstScreen({navigation}) {
+export default function FirstScreen({ navigation }) {
     const [valor, setValor] = useState(0)
     const [olho, setOlho] = useState("eye-outline")
     const [open, setOpen] = useState(false)
@@ -18,7 +19,8 @@ export default function FirstScreen({navigation}) {
         },
         {
             id: 2,
-            title: 'Extrato'
+            title: 'Extrato',
+            name:'ScreenExtract'
         },
         {
             id: 3,
@@ -26,27 +28,35 @@ export default function FirstScreen({navigation}) {
         },
         {
             id: 4,
-            title: 'Pedir cartão'
+            title: 'Meus cartões'
+        },
+        {
+            id: 5,
+            title: "caixinha"
+        },
+        {
+            id:6,
+            title:'Recarga de celular'
         }
     ]
-    const Funcoes = ({ title, screen}) => (
+    const Funcoes = ({ title }) => (
         <View style={styles.function}>
             <Text style={styles.text}>{title}</Text>
-           
-            
+
+
         </View>
     )
-    function Olho (){
+    function Olho() {
         setOpen(true)
-        if(open){
+        if (open) {
             setValor(100)
             setOlho("eye-off-outline")
             setOpen(false)
-        } else{
+        } else {
             setValor(0)
             setOlho("eye-outline")
         }
-        
+
     }
     const [dolar, setDolar] = useState(0)
 
@@ -58,59 +68,60 @@ export default function FirstScreen({navigation}) {
         return setDolar(data.USDBRL.high)
 
     })
-
+    
     return (
-        <View style={styles.container}>
-            <View style={styles.information}>
-                <View style={styles.containerImg}>
-                    <Image
-                        source={require('../../assets/keven.png')}
-                        style={styles.img} />
-                </View>
-                <Text style={styles.txtUser}>Olá Keven!</Text>
-            </View>
-            <View style={styles.rectangle}>
-                <Text style={styles.txtInformation}>Conta</Text>
-
-                <Text style={styles.txtInformation}>R${valor},00</Text>
-                <TouchableOpacity onPress={Olho}>
-                    <Ionicons name={olho} size={24} style={{ left: 300, bottom: 33 }} color="black" />
-                </TouchableOpacity>
-
-            </View>
-            <SafeAreaView style={styles.window}>
-                <FlatList
-                    horizontal={false}
-                    numColumns={2}
-                    data={funcaoApp}
-                    renderItem={({ item }) => {
-                        return (
-                        
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate(item.name)
-                                }}>
-                                <Funcoes title={item.title} screen={item.path}  />
-                            </TouchableOpacity>
-                        
-                        )
-                    }}
-                />
-                <View style={styles.slides}>
-                    <Image source={require('../../assets/dolar.png')}
-                        style={styles.imgSlides} />
-                    <Text style={styles.text}>Cotação do Dólar</Text>
-                    <Text style={styles.Api}>A Cotação do dólar está ${dolar}</Text>
-                </View>
-                <View style={styles.nameSlogan}>
-                    <View style={styles.title}>
-                        <Text style={styles.txt}>Ke</Text>
-                        <Text style={styles.secondPartName}>Bank</Text>
+        <ScrollView>
+            <View style={styles.container}>
+                <View style={styles.information}>
+                    <View style={styles.containerImg}>
+                        <Image
+                            source={require('../../assets/keven.png')}
+                            style={styles.img} />
                     </View>
+                    <Text style={styles.txtUser}>Olá Keven!</Text>
                 </View>
-            </SafeAreaView>
+                <View style={styles.rectangle}>
+                    <Text style={styles.txtInformation}>Conta</Text>
 
-        </View>
+                    <Text style={styles.txtInformation}>R${valor},00</Text>
+                    <TouchableOpacity onPress={Olho}>
+                        <Ionicons name={olho} size={24} style={{ left: 300, bottom: 33 }} color="black" />
+                    </TouchableOpacity>
 
+                </View>
+                <SafeAreaView style={styles.window}>
+                    <FlatList
+                        horizontal={false}
+                        numColumns={2}
+                        data={funcaoApp}
+                        renderItem={({ item }) => {
+                            return (
+
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        navigation.navigate(item.name)
+                                    }}>
+                                    <Funcoes title={item.title} screen={item.path} />
+                                </TouchableOpacity>
+
+                            )
+                        }}
+                    />
+                    <View style={styles.slides}>
+                        <Image source={require('../../assets/dolar.png')}
+                            style={styles.imgSlides} />
+                        <Text style={styles.text}>Cotação do Dólar</Text>
+                        <Text style={styles.Api}>A Cotação do dólar está ${dolar}</Text>
+                    </View>
+                    <View style={styles.nameSlogan}>
+                        <View style={styles.title}>
+                        <Animatable.Text animation='pulse' delay={5000} style={styles.txt}>Ke</Animatable.Text>
+                            <Text style={styles.secondPartName}>Bank</Text>
+                        </View>
+                    </View>
+                </SafeAreaView>
+
+            </View>
+        </ScrollView>
     );
-}
+}//a@b.com 123456

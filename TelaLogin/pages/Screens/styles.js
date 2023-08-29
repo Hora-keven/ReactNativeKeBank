@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      top:50
+   
      
     },
     txt:{
@@ -22,13 +22,14 @@ const styles = StyleSheet.create({
     },
     title:{
         flexDirection:'row'
+   
     },
     nameSlogan:{
         justifyContent:'center',
         alignItems:'center',
         width:'100%', 
-        bottom:40,
-      
+        
+        left:125
     },
     secondPartName:{
         fontFamily:'inter',
@@ -77,13 +78,13 @@ const styles = StyleSheet.create({
     },
     containerImg:{
         width:90,
-        height:'12%',
+        height:'13%',
         position:'relative',
         bottom:300,
         right:245,
-        marginTop:510,
+        marginTop:410,
         backgroundColor:'#0084B4',
-        borderRadius:4,
+        borderRadius:7,
         justifyContent:'center',
         alignItems:'center'
     },
@@ -97,7 +98,8 @@ const styles = StyleSheet.create({
         height:'10%',
         backgroundColor:'#0084B4',
         borderRadius:8,
-        bottom:250,
+        bottom:669,
+        position:'absolute',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -137,11 +139,11 @@ const styles = StyleSheet.create({
     function:{
         marginTop:10,
         backgroundColor:'#0084B4',
-        width:170,
+        width:175,
         height:80, 
-        marginLeft:3,
+        justifyContent:'space-between',
         borderRadius:7,
-        padding:3,
+        marginLeft:3.5,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#0084B4',
         width:"99%",
         height:"40%",
-        bottom:60,
+        bottom:27,
         borderRadius:7,
         position:'relative',
         alignItems:'center',

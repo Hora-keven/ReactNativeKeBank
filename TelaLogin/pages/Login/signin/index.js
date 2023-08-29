@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from '../../firebaseConfig'
 import { useState } from "react";
+import * as Animatable from 'react-native-animatable';
 
 export default function LoginUser({ navigation }) {
 
@@ -31,7 +32,7 @@ export default function LoginUser({ navigation }) {
 
             <View style={styles.nameSlogan}>
                 <View style={styles.title}>
-                    <Text style={styles.txt}>Ke</Text>
+                <Animatable.Text animation='pulse'  duration={2000} style={styles.txt}>Ke</Animatable.Text>
                     <Text style={styles.secondPartName}>Bank</Text>
                 </View>
             </View>

@@ -9,14 +9,6 @@ export default function ScreenPix({ navigation }) {
        <ScrollView style={{backgroundColor:'white'}}>
         <View style={styles.container} >
 
-            <View style={styles.information}>
-                <View style={styles.containerImg}>
-                    <Image
-                        source={require('../../assets/keven.png')}
-                        style={styles.img} />
-                </View>
-                <Text style={styles.txtUser}>Olá Keven!</Text>
-            </View>
             <View style={styles.rectangle}>
                 <Text style={styles.text}>Pix</Text>
             </View>
