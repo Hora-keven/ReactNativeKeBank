@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
       margin:0,
       width:'100%'
     },
+    
     txt:{
         fontFamily:'Dela gothic alone',
         textAlign:'center',

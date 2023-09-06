@@ -1,9 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from './pages/Home'
-import Login from './pages/Login'
-import LoginUser from './pages/Login/loginolduser.js'
+import Login from './pages/Login/signin'
+import LoginUser from './pages/Login/Signup'
 import FirstScreen from './pages/Screens/home.js'
+import ScreenPix from './pages/Screens/Pix'
+import ScreenExtract from './pages/Screens/Extract'
 
 const stack = createStackNavigator()
 export default function App() {
@@ -13,8 +15,9 @@ export default function App() {
         <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
         <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
         <stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-        <stack.Screen name='Login_old_user' component={LoginUser} options={{ headerShown: false }} />
-      
+        <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }} /> 
+        <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
+        <stack.Screen name='ScreenExtract' component={ScreenExtract} options={{ headerShown: false }} />
       </stack.Navigator>
 
     </NavigationContainer>
