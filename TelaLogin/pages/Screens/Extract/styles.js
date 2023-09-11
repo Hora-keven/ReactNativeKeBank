@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      marginTop:25
+      height:800,
+      marginTop:50
     },
 
     txt:{
@@ -20,26 +21,36 @@ const styles = StyleSheet.create({
        
  
     },
-    title:{
-        flexDirection:'row'
-    },
-    nameSlogan:{
-        justifyContent:'flex-end',
-        alignItems:'flex-end',
-        width:'100%', 
-        bottom:30,
-        right:30
+    firstName:{
+        fontFamily:'Dela gothic alone',
+        fontWeight:700,
+        fontSize:20,
+        color:'black',
     
+       
+ 
     },
     secondPartName:{
         fontFamily:'inter',
         color:'black',
         fontSize:20,
     },
+    title:{
+        flexDirection:'row'
+    },
+
+    nameSlogan:{
+        justifyContent:'center',
+        alignItems:'center',
+        width:'100%',
+        bottom:210,
+        left:140
+    },
+  
    
     inputs:{
         width:'85%',
-        top:100
+        top:110
 
     },
     input:{
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
         height:'9%',
         backgroundColor:'#0084B4',
         borderRadius:8,
-        marginTop:150,
+        marginTop:160,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -71,7 +82,8 @@ const styles = StyleSheet.create({
         margin:0,
         justifyContent:'center',
         alignItems:'center',
-        top:150
+        top:115,
+    
       
     },
 
@@ -80,7 +92,7 @@ const styles = StyleSheet.create({
         fontSize:23,
         top:10,
         left:10,
-        color:'white'
+       
   
     },
     textT:{
@@ -125,17 +137,14 @@ const styles = StyleSheet.create({
         fontFamily:'inter',
         fontSize:22,
         left:155,
-        top:110,
+        top:80,
         position:'relative'
       
     },
     textTitle:{
-        fontSize:23,
-        bottom:350,
+        fontSize:27,
+
     },
-    containerTrans:{
-        backgroundColor:'black',
-    }
-  
+
 })
 export default styles;

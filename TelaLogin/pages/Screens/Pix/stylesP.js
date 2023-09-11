@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      height:1000
+      height:830
     },
     txt:{
         fontFamily:'Dela gothic alone',
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:150
+        top:50,
+     
     
     },
     secondPartName:{
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
    
     inputs:{
         width:'85%',
-        bottom:200,
+        bottom:10,
 
     },
     input:{
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
         height:'6%',
         backgroundColor:'#0084B4',
         borderRadius:8,
-        bottom:350,
+        bottom:70,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -82,11 +83,11 @@ const styles = StyleSheet.create({
     window:{
         width:'88%',
         height:'60%',
-        marginRight:3,
+        top:50,
         margin:0,
         justifyContent:'center',
         alignItems:'center',
-        bottom:230
+      
     },
 
     text:{
@@ -100,52 +101,29 @@ const styles = StyleSheet.create({
 
     function:{
         marginTop:10,
-        backgroundColor:'#0084B4',
-        width:170,
+        backgroundColor:'#white',
+        width:300,
         height:80, 
         marginLeft:3,
         borderRadius:7,
         padding:3,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        borderWidth:2
         
     },
-    slides:{
-        backgroundColor:'#0084B4',
-        width:"99%",
-        height:"40%",
-        bottom:60,
-        position:'relative',
-        alignItems:'center',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        
-         
-    },
+   
+    
     Arrowbutton:{
         color:'black',
         fontFamily:'inter',
         fontSize:22,
         left:155,
-        bottom:180,
+        top:15,
         position:'relative'
       
     },
     textTitle:{
         fontSize:23,
-        bottom:150,
+        top:30
     }
   
 })

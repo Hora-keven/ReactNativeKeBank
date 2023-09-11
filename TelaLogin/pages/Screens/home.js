@@ -42,8 +42,6 @@ export default function FirstScreen({ navigation }) {
     const Funcoes = ({ title }) => (
         <View style={styles.function}>
             <Text style={styles.text}>{title}</Text>
-
-
         </View>
     )
     function Olho() {
@@ -102,6 +100,7 @@ export default function FirstScreen({ navigation }) {
                                         navigation.navigate(item.name)
                                     }}>
                                     <Funcoes title={item.title} screen={item.path} />
+                                    
                                 </TouchableOpacity>
 
                             )

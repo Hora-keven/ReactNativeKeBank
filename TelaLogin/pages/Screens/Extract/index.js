@@ -2,8 +2,8 @@ import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-nativ
 import styles from './styles'
 import { FlatList } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native'
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-
+import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import * as Animatable from 'react-native-animatable'
 export default function ScreenExtract() {
 
     const Transferencia = [
@@ -31,7 +31,8 @@ export default function ScreenExtract() {
             id: 5,
             nome: 'José',
             valor: '100,00'
-        }
+        },
+      
     ]
     const Historico = ({ title, valor }) => (
         <View style={styles.function}>
@@ -42,41 +43,44 @@ export default function ScreenExtract() {
         </View>
     )
     return (
-        <ScrollView style={{ backgroundColor: 'white' }}>
+        <ScrollView >
             <View style={styles.container} >
                 <View style={styles.rectangle}>
                     <Text style={styles.text}>Extrato</Text>
                 </View>
                 <View style={styles.inputs}>
                     <TextInput style={styles.input} placeholderTextColor={'black'} placeholder=" Buscar: " />
-               
+
                 </View>
 
                 <View>
                     <TouchableOpacity onPress={() => { navigation.navigate('First') }} style={styles.button}>
-                        <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward" />
+                      <Feather name="search" size={24} color="black" style={styles.Arrowbutton} />
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <Text styles={styles.textT}>Histórico</Text>
+                    <Text style={styles.textTitle}>Histórico</Text>
                 </View>
                 <SafeAreaView style={styles.window}>
                     <FlatList
                         data={Transferencia}
                         renderItem={({ item }) => {
                             return (
-
-                                <View>
-                                    <Historico title={item.nome} valor={item.valor} />
-
-                                </View>
-
-
-
+                                <ScrollView>
+                                    <View style={styles.containerTrans}>
+                                        <Historico title={item.nome} valor={item.valor} />
+                                    </View>
+                                </ScrollView>
                             )
                         }}
                     />
                 </SafeAreaView>
+                <View style={styles.nameSlogan}>
+                        <View style={styles.title}>
+                            <Animatable.Text animation='pulse' delay={5000} style={styles.firstName}>Ke</Animatable.Text>
+                            <Text style={styles.secondPartName}>Bank</Text>
+                        </View>
+                </View>
             </View>
         </ScrollView>
     )

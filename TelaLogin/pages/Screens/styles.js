@@ -64,10 +64,9 @@ const styles = StyleSheet.create({
         color:'black',
         fontFamily:'inter',
         fontSize:30,
-        left:300,
-        bottom:30,
-        width:0
-       
+     
+    
+
     },
    
     img:{
@@ -129,17 +128,18 @@ const styles = StyleSheet.create({
 
     text:{
         fontFamily:'Raleway sans Serif',
-        fontSize:19,
+        fontSize:18,
         top:23,
         textAlign:'center',
         justifyContent:'center',
+        
   
     },
 
     function:{
         marginTop:10,
         backgroundColor:'#0084B4',
-        width:175,
+        width:168,
         height:80, 
         justifyContent:'space-between',
         borderRadius:7,
