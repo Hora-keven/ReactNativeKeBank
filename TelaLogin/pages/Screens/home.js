@@ -3,6 +3,11 @@ import styles from "./styles";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 import { ScrollView } from "react-native";
+import pix from './../../assets/pix.png'
+import locke from './../../assets/locke.png'
+import extrato from  './../../assets/extrato.png'
+import emprestimo from  './../../assets/emprestimo.png'
+import cartao from  './../../assets/cartao.png'
 import * as Animatable from 'react-native-animatable'
 
 export default function FirstScreen({ navigation }) {
@@ -14,35 +19,44 @@ export default function FirstScreen({ navigation }) {
     const funcaoApp = [
         {
             id: 1,
-            title: 'Pix',
-            name: 'ScreenPix'
+            title: 'pix',
+            name: 'ScreenPix',
+            img:pix
         },
         {
             id: 2,
             title: 'Extrato',
-            name:'ScreenExtract'
+            name:'ScreenExtract',
+            img:extrato
         },
         {
             id: 3,
-            title: 'Empréstimo'
+            title: 'Empréstimo',
+            img:emprestimo
         },
         {
             id: 4,
-            title: 'Meus cartões'
+            title: 'Meus cartões',
+            img:cartao
         },
         {
             id: 5,
-            title: "caixinha"
+            title: "caixinha",
+            img:locke
         },
         {
             id:6,
-            title:'Recarga de celular'
+            title:'Recarga de celular',
+            img:pix
         }
     ]
-    const Funcoes = ({ title }) => (
+    
+    const Funcoes = ({ title, img }) => (
         <View style={styles.function}>
             <Text style={styles.text}>{title}</Text>
+            <Image source={img} style={styles.imgf}/>
         </View>
+        
     )
     function Olho() {
         setOpen(true)
@@ -99,8 +113,8 @@ export default function FirstScreen({ navigation }) {
                                     onPress={() => {
                                         navigation.navigate(item.name)
                                     }}>
-                                    <Funcoes title={item.title} screen={item.path} />
-                                    
+                                    <Funcoes title={item.title} img={item.img} screen={item.path} />
+                                
                                 </TouchableOpacity>
 
                             )

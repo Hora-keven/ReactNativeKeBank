@@ -72,8 +72,13 @@ const styles = StyleSheet.create({
     img:{
         width:50,
         height:50,
-
        
+    },
+    imgf:{
+        width:25,
+        height:25,
+        bottom:45,
+        left:70,
     },
     containerImg:{
         width:90,
@@ -129,9 +134,9 @@ const styles = StyleSheet.create({
     text:{
         fontFamily:'Raleway sans Serif',
         fontSize:18,
-        top:23,
+        top:43,
         textAlign:'center',
-        justifyContent:'center',
+       
         
   
     },
