@@ -91,9 +91,9 @@ const styles = StyleSheet.create({
     },
 
     text:{
-        fontFamily:'Raleway sans Serif',
+        fontFamily:'sans-serif',
         fontSize:23,
-        top:15,
+        top:11,
         left:10,
         color:'black'
   
@@ -124,6 +124,15 @@ const styles = StyleSheet.create({
     textTitle:{
         fontSize:23,
         top:30
+    },
+    modal:{
+        backgroundColor:'#0084B4',
+        alignItems:'center',
+        display:'flex'
+    },
+    confirm:{
+        marginTop:50,
+        height:200
     }
   
 })

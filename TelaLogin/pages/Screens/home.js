@@ -19,7 +19,7 @@ export default function FirstScreen({ navigation }) {
     const funcaoApp = [
         {
             id: 1,
-            title: 'pix',
+            title: 'Pix',
             name: 'ScreenPix',
             img:pix
         },
@@ -41,7 +41,7 @@ export default function FirstScreen({ navigation }) {
         },
         {
             id: 5,
-            title: "caixinha",
+            title: "Caixinha",
             img:locke
         },
         {
@@ -54,7 +54,10 @@ export default function FirstScreen({ navigation }) {
     const Funcoes = ({ title, img }) => (
         <View style={styles.function}>
             <Text style={styles.text}>{title}</Text>
-            <Image source={img} style={styles.imgf}/>
+            <View style={styles.containerImgF}>
+                <Image source={img} style={styles.imgf}/>
+            </View>
+           
         </View>
         
     )
@@ -123,7 +126,7 @@ export default function FirstScreen({ navigation }) {
                     <View style={styles.slides}>
                         <Image source={require('../../assets/dolar.png')}
                             style={styles.imgSlides} />
-                        <Text style={styles.text}>Cotação do Dólar</Text>
+                        <Text style={{fontSize:20, top:15}}>Cotação do Dólar</Text>
                         <Text style={styles.Api}>A Cotação do dólar está ${dolar}</Text>
                     </View>
                     <View style={styles.nameSlogan}>

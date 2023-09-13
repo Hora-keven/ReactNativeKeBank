@@ -2,6 +2,8 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView } fro
 import styles from './stylesP'
 import { Ionicons } from '@expo/vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
+import React, { useRef } from 'react';
+import { Modalize } from 'react-native-modalize';
 
 export default function ScreenPix({ navigation }) {
     const ContatosCadastrados = [
@@ -32,6 +34,11 @@ export default function ScreenPix({ navigation }) {
             <Text style={styles.text}>{nome}</Text>
         </View>
     )
+    const modalizeRef = useRef(<Modalize />);
+
+    const abrirModal = () => {
+        modalizeRef.current?.open();
+    };
     return (
 
         <ScrollView style={{ backgroundColor: 'white' }}>
@@ -46,10 +53,18 @@ export default function ScreenPix({ navigation }) {
                 </View>
 
                 <View>
-                    <TouchableOpacity onPress={() => { navigation.navigate('LoginUser') }}>
+                    <TouchableOpacity onPress={abrirModal}>
                         <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward" />
                     </TouchableOpacity>
                 </View>
+                <Modalize ref={modalizeRef} modalHeight={500} modalStyle={styles.modal}>
+                    <View style={styles.confirm}>
+                        <Text style={{ fontSize: 22 }}>Digite sua senha: </Text>
+                        <View style={{top:50}}>
+                            <TextInput   placeholderTextColor={'black'} />
+                        </View>
+                    </View>
+                </Modalize>
                 <View>
                     <Text style={styles.textTitle}>Contatos cadastrados</Text>
                 </View>
@@ -70,7 +85,7 @@ export default function ScreenPix({ navigation }) {
                         <Text style={styles.secondPartName}>Bank</Text>
                     </View>
                 </View>
-               
+
 
             </View>
         </ScrollView>
