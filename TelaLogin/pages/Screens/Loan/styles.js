@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
 
     txt:{
         fontFamily:'Dela gothic alone',
-        left:34,
-        fontSize:15,
+        left:4,
+        fontSize:20,
         color:'black',
        
  
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
    
     inputs:{
         width:'85%',
-        top:110
+        top:80
 
     },
     input:{
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         height:'9%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        marginTop:160,
+        marginTop:120,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -107,38 +107,22 @@ const styles = StyleSheet.create({
     function:{
         marginTop:10,
         backgroundColor:'white',
-        width:350,
-        height:80, 
+        width:340,
+        height:60, 
         marginLeft:3,
         borderRadius:7,
+        borderBottomWidth:2,
         padding:3,
-        borderLeftWidth:2,
+  
         
     },
-    slides:{
-        backgroundColor:'#155e85',
-        width:"99%",
-        height:"40%",
-        bottom:60,
-        position:'relative',
-        alignItems:'center',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        
-         
-    },
+   
     Arrowbutton:{
         color:'black',
         fontFamily:'inter',
         fontSize:22,
         left:155,
-        top:80,
+        top:50,
         position:'relative'
       
     },

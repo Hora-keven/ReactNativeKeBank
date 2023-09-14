@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor:'#0084B4',
+      backgroundColor:'#155e85',
       padding:0,
       margin:0,
       width:'100%'
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
        borderBottomColor:'white',
        marginTop:20,
        width:'100%',
-       backgroundColor:'#0084B4'
+       backgroundColor:'#155e85'
     
     },
     Arrowbutton:{
