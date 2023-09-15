@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      height:830
+      height:890
     },
     txt:{
         fontFamily:'Dela gothic alone',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:50,
+        top:80,
      
     
     },
@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
         fontSize:20,
     },
     txtUser:{
-        color:'black',
-        fontFamily:'inter',
-        fontSize:22,
-        bottom:350,
-        right:120
+        fontFamily:'sans-serif',
+        fontSize:23,
+        top:11,
+        left:10,
+        color:'black'
     },
    
     inputs:{
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     rectangle:{
         width:'88%',
         height:'6%',
-        backgroundColor:'#0084B4',
+        backgroundColor:'#155e85',
         borderRadius:8,
         bottom:50,
         shadowColor: "#000",
@@ -95,20 +95,19 @@ const styles = StyleSheet.create({
         fontSize:23,
         top:11,
         left:10,
-        color:'black'
+        color:'white'
   
     },
 
     function:{
         marginTop:10,
-        backgroundColor:'#white',
-        width:300,
+        backgroundColor:'white',
+        width:350,
         height:80, 
         marginLeft:3,
         borderRadius:7,
         padding:3,
-        borderWidth:2
-        
+        borderLeftWidth:2,
     },
    
     
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
     },
     textTitle:{
         fontSize:23,
-        top:30
+        top:30,
     },
     modal:{
         backgroundColor:'#0084B4',

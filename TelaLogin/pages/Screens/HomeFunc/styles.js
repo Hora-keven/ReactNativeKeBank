@@ -7,8 +7,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor:'#fff',
       padding:0,
-      margin:0,
+      marginTop:0,
       width:'100%',
+  
    
      
     },
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%', 
-        bottom:40,
+        bottom:1,
         left:125
     },
     secondPartName:{

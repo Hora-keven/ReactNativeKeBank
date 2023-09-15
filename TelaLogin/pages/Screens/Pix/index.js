@@ -31,7 +31,7 @@ export default function ScreenPix({ navigation }) {
     ]
     const Contatos = ({ nome }) => (
         <View style={styles.function}>
-            <Text style={styles.text}>{nome}</Text>
+            <Text style={styles.txtUser}>{nome}</Text>
         </View>
     )
     const modalizeRef = useRef(<Modalize />);

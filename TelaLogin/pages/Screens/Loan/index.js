@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 
-export default function ScreenLoan() {
+export default function ScreenLoan({navigation}) {
 
     const Transferencia = [
         {
@@ -45,7 +45,7 @@ export default function ScreenLoan() {
                 </View>
 
                 <View>
-                    <TouchableOpacity onPress={() => { navigation.navigate('First'); }} style={styles.button}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ScreenExtract')} style={styles.button}>
                         <Feather name="search" size={24} color="black" style={styles.Arrowbutton} />
                     </TouchableOpacity>
                 </View>

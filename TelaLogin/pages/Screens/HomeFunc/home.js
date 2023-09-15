@@ -32,11 +32,13 @@ export default function FirstScreen({ navigation }) {
         {
             id: 3,
             title: 'Empréstimo',
+            name:'Loan',
             img:emprestimo
         },
         {
             id: 4,
             title: 'Meus cartões',
+            name:'ScreenCard',
             img:cartao
         },
         {
