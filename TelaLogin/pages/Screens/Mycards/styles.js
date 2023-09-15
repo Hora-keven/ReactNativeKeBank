@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      height:890,
+      height:895
      
     },
 
@@ -26,9 +26,6 @@ const styles = StyleSheet.create({
         fontWeight:700,
         fontSize:20,
         color:'black',
-    
-       
- 
     },
     secondPartName:{
         fontFamily:'inter',
@@ -38,20 +35,17 @@ const styles = StyleSheet.create({
     title:{
         flexDirection:'row'
     },
-
     nameSlogan:{
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
-        bottom:170,
+        top:80,
         left:140
     },
-  
-   
+
     inputs:{
         width:'85%',
         top:80
-
     },
     input:{
        borderBottomWidth:1,
@@ -65,7 +59,7 @@ const styles = StyleSheet.create({
         height:'9%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        bottom:150,
+        bottom:50,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -76,13 +70,34 @@ const styles = StyleSheet.create({
         elevation: 5,
 
     },
+    imgf:{
+        width:25,
+        height:25.7,
+        bottom:24,
+    },
+    containerImgF:{
+        width:100,
+        
+    },
+    containerImg:{
+        width:70,
+        height:'13%',
+        position:'relative',
+        bottom:300,
+        right:245,
+        backgroundColor:'#155e85',
+        borderRadius:35,
+        justifyContent:'center',
+        alignItems:'center'
+    },
   
     window:{
         marginRight:3,
         margin:0,
         justifyContent:'center',
-        alignItems:'center',
-        top:115,
+        alignItems:'flex-start',
+        top:15,
+        width:315
     
       
     },
@@ -98,8 +113,7 @@ const styles = StyleSheet.create({
     },
     textT:{
         fontFamily:'Raleway sans Serif',
-        fontSize:20,
-        top:4,
+        fontSize:13,
         left:30,
         color:'black'
     },
@@ -111,10 +125,7 @@ const styles = StyleSheet.create({
         height:60, 
         marginLeft:3,
         borderRadius:7,
-        borderBottomWidth:2,
         padding:3,
-  
-        
     },
    
     Arrowbutton:{
@@ -127,31 +138,23 @@ const styles = StyleSheet.create({
       
     },
     textTitle:{
-        fontSize:27,
+        fontSize:23,
+        marginTop:23,
 
     },
     slides:{
-        backgroundColor:'#155e85',
+       
         width:"79%",
         height:"40%",
         borderRadius:7,
         position:'relative',
         alignItems:'center',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        
-         
+        bottom:50
+      
     },
     imgSlides:{
-        width:'90%',
-        height:'50%',
-        top:10,
+    
+        top:150,
 
     },
     Api:{

@@ -44,6 +44,7 @@ export default function FirstScreen({ navigation }) {
         {
             id: 5,
             title: "Caixinha",
+            name:'ScreenBox',
             img:locke
         },
         {

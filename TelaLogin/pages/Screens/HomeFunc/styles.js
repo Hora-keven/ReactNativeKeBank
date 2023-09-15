@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%', 
-        bottom:1,
+        bottom:50,
         left:125
     },
     secondPartName:{
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         color:'black',
         fontFamily:'inter',
         fontSize:22,
-        bottom:350,
+        bottom:340,
         right:120
     },
    
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         width:70,
         height:'13%',
         position:'relative',
-        bottom:300,
+        bottom:290,
         right:245,
         marginTop:410,
         backgroundColor:'#155e85',
