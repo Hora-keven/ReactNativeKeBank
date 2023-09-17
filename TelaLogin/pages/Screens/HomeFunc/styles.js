@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
         borderColor:'white',
         top:100
 
-
     },
     input:{
        borderBottomWidth:1,
@@ -95,7 +94,7 @@ const styles = StyleSheet.create({
     },
     information:{
         left:125,
-        marginTop:100,
+        marginTop:120,
       
         
     },

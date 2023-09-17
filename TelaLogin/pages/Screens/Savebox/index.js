@@ -60,7 +60,7 @@ export default function ScreenBox({ navigation }) {
 
                 <Modalize ref={modalizeRef} modalHeight={500} modalStyle={styles.modal}>
                     <View style={styles.confirm}>
-                        <Text style={{ fontSize: 22, color: 'white' }} color='white'>Digite o valor que você quer guardar: </Text>
+                        <Text style={{ fontSize: 20, color: 'white' }} color='white'>Digite o valor que você quer guardar: </Text>
                         <View style={{ top: 50 }}>
              
                             <TextInputMask 
@@ -74,6 +74,8 @@ export default function ScreenBox({ navigation }) {
                                     suffixUnit: ''
                                 }}
                                 value={valor}
+                                placeholder={'R$'}
+                                placeholderTextColor={'white'}
                                 onChangeText={text => {
                                    setValor(text)
                                 }}

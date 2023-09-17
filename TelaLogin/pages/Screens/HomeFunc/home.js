@@ -8,6 +8,7 @@ import locke from './../../../assets/locke.png'
 import extrato from  './../../../assets/extrato.png'
 import emprestimo from  './../../../assets/emprestimo.png'
 import cartao from  './../../../assets/cartao.png'
+import phone from './../../../assets/phone.png'
 import * as Animatable from 'react-native-animatable'
 
 export default function FirstScreen({ navigation }) {
@@ -50,7 +51,7 @@ export default function FirstScreen({ navigation }) {
         {
             id:6,
             title:'Recarga de celular',
-            img:pix
+            img:phone
         }
     ]
     
