@@ -1,11 +1,15 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
 import styles from './stylesP'
 import { Ionicons } from '@expo/vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { TextInputMask } from 'react-native-masked-text'
 import { Modalize } from 'react-native-modalize';
 
 export default function ScreenPix({ navigation }) {
+    const [chavePix, setChavePix] = useState("")
+    const [senha, setSenha] = useState("")
+    const[valor,setValor]=useState("")
     const ContatosCadastrados = [
         {
             id: 1,
@@ -37,6 +41,7 @@ export default function ScreenPix({ navigation }) {
     const modalizeRef = useRef(<Modalize />);
 
     const abrirModal = () => {
+    
         modalizeRef.current?.open();
     };
     return (
@@ -49,7 +54,13 @@ export default function ScreenPix({ navigation }) {
                 </View>
 
                 <View style={styles.inputs}>
-                    <TextInput style={styles.input} placeholder="Digite a chave pix" placeholderTextColor={'black'} />
+                    <TextInputMask
+                        type='cpf'
+                        style={styles.input}
+                        value={chavePix}
+                        placeholder='Digite a chave do pix:'
+                        placeholderTextColor={'black'}
+                        onChangeText={text => { setChavePix(text) }} />
                 </View>
 
                 <View>
@@ -57,12 +68,45 @@ export default function ScreenPix({ navigation }) {
                         <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward" />
                     </TouchableOpacity>
                 </View>
+
                 <Modalize ref={modalizeRef} modalHeight={500} modalStyle={styles.modal}>
                     <View style={styles.confirm}>
-                        <Text style={{ fontSize: 22 }}>Digite sua senha: </Text>
-                        <View style={{top:50}}>
-                            <TextInput   placeholderTextColor={'black'} />
+
+
+                    <TextInputMask 
+                            style={{ borderBottomColor: 'white', borderBottomWidth: 2 }}
+                                type={'money'}
+                                options={{
+                                    
+                                    precision: 2,
+                                    separator: ',',
+                                    delimiter: '.',
+                                    unit: 'R$',
+                                    suffixUnit: ''
+                                }}
+                                value={valor}
+                                placeholder={'R$'}
+                                placeholderTextColor={'white'}
+                                onChangeText={text => {
+                                   setValor(text)
+                                }}
+                            />
+                                <View style={{ top: 50 }}>
+
+                            <TextInputMask
+                                type='only-numbers'
+                                keyboardAppearance="default"
+                                maxLength={4}
+                                placeholder='Digite sua senha:'
+                                placeholderTextColor={'white'}
+                                style={{ borderBottomColor: 'white', borderBottomWidth: 2 }}
+                                value={senha}
+                                onChangeText={text => { setSenha(text) }} />
+
                         </View>
+                        <TouchableOpacity onPress={()=>{navigation.navigate("ScreenApproved")}}>
+                           <Ionicons style={styles.button} name="ios-arrow-forward" />
+                        </TouchableOpacity>
                     </View>
                 </Modalize>
                 <View>

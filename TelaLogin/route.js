@@ -9,6 +9,8 @@ import ScreenExtract from './pages/Screens/Extract'
 import ScreenLoan from './pages/Screens/Loan/index'
 import ScreenCards from './pages/Screens/Mycards'
 import ScreenBox from './pages/Screens/Savebox'
+import ScreenRecharge from './pages/Screens/Phonerecharge'
+import ScreenApproved from './pages/Screens/Approved'
 const stack = createStackNavigator()
 export default function App() {
   return (
@@ -21,8 +23,11 @@ export default function App() {
       <stack.Screen name='ScreenBox' component={ScreenBox} options={{ headerShown: false }}/>
       <stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
       <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+      <stack.Screen name='ScreenRecharge' component={ScreenRecharge} options={{ headerShown: false }} />
       <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
       <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }}/> 
+      <stack.Screen name='ScreenApproved' component={ScreenApproved} options={{ headerShown: false }}/> 
+      
       </stack.Navigator>
 
     </NavigationContainer>

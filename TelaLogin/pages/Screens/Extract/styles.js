@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
    
     rectangle:{
         width:'88%',
-        height:'9%',
+        height:'7%',
         backgroundColor:'#155e85',
         borderRadius:8,
         marginTop:165,

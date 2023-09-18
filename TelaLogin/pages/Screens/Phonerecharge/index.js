@@ -1,35 +1,36 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView, Image } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, Image } from 'react-native'
 import styles from './styles'
+import { Ionicons } from '@expo/vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
 import React, { useRef, useState } from 'react';
 import { TextInputMask } from 'react-native-masked-text'
 import { Modalize } from 'react-native-modalize';
-import sonho from './../../../assets/sonho.jpg'
-import carreira from './../../../assets/carreira.jpg'
-import viagem from './../../../assets/viagem.jpg'
-import casa from './../../../assets/casa.jpg'
-export default function ScreenBox({ navigation }) {
+import tim from './../../../assets/tim.png'
+import vivo from './../../../assets/vivo.png'
+import claro from './../../../assets/claro.png'
+import anatel from './../../../assets/anatel.png'
+export default function ScreenRecharge({ navigation }) {
 
     const ContatosCadastrados = [
         {
             id: 1,
-            nome: 'Sonho de Consumo',
-            img: sonho
+            nome: 'Tim',
+            img: tim
         },
         {
             id: 2,
-            nome: 'Fazer uma viagem',
-            img: viagem
+            nome: 'Claro',
+            img: claro
         },
         {
             id: 3,
-            nome: 'Reformar a casa',
-            img: casa
+            nome: 'Vivo',
+            img: vivo
         },
         {
             id: 4,
-            nome: 'Focar na carreira',
-            img: carreira
+            nome: 'Anatel',
+            img: anatel
         },
 
 
@@ -55,19 +56,18 @@ export default function ScreenBox({ navigation }) {
             <View style={styles.container} >
 
                 <View style={styles.rectangle}>
-                    <Text style={styles.text}>Caixinhas</Text>
+                    <Text style={styles.text}>Recarga de celular</Text>
                 </View>
 
                 <Modalize ref={modalizeRef} modalHeight={500} modalStyle={styles.modal}>
                     <View style={styles.confirm}>
-                        <Text style={{ fontSize: 20, color: 'white' }} color='white'>Digite o valor que você quer guardar: </Text>
+                        <Text style={{ fontSize: 20, color: 'white' }} color='white'>Digite o valor que você quer recarregar: </Text>
                         <View style={{ top: 50 }}>
              
                             <TextInputMask 
                             style={styles.input}
                                 type={'money'}
                                 options={{
-                                    
                                     precision: 2,
                                     separator: ',',
                                     delimiter: '.',
@@ -77,11 +77,14 @@ export default function ScreenBox({ navigation }) {
                                 value={valor}
                                 placeholder={'R$'}
                                 placeholderTextColor={'white'}
-                                onChangeText={text => {
-                                   setValor(text)
+                                onChangeText={v => {
+                                   setValor(v)
                                 }}
                             />
                         </View>
+                        <TouchableOpacity onPress={abrirModal}>
+                           <Ionicons style={styles.button} name="ios-arrow-forward" />
+                        </TouchableOpacity>
 
                     </View>
                 </Modalize>

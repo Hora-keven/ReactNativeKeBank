@@ -51,6 +51,7 @@ export default function FirstScreen({ navigation }) {
         {
             id:6,
             title:'Recarga de celular',
+            name:'ScreenRecharge',
             img:phone
         }
     ]

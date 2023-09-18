@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     txtUser:{
         fontFamily:'sans-serif',
         fontSize:23,
-        top:11,
-        left:10,
+        bottom:45,
+        left:100,
         color:'black'
     },
    
@@ -51,19 +51,18 @@ const styles = StyleSheet.create({
     },
     input:{
        borderBottomWidth:1,
-       borderBottomColor:'black',
+       borderBottomColor:'white',
        width:'100%',
+       height:40,
+       color:'white',
+       
     
     },
-    button:{
-        fontSize:20,
-        color:'white',
-        left:199,
-        top:70
-    },  
+   
     img:{
         width:50,
         height:50,
+        borderRadius:15
 
        
     },
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
         height:'6%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        bottom:50,
+        bottom:90,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -106,12 +105,20 @@ const styles = StyleSheet.create({
 
     function:{
         marginTop:10,
+        backgroundColor:'white',
         width:350,
-        height:80, 
+        height:105, 
         marginLeft:3,
         borderRadius:7,
-        borderLeftWidth:2,
+   
+    
     },
+    button:{
+        fontSize:20,
+        color:'white',
+        left:335,
+        top:70
+    },  
    
     
     Arrowbutton:{
@@ -130,14 +137,11 @@ const styles = StyleSheet.create({
     modal:{
         backgroundColor:'#155e85',
         alignItems:'center',
-        display:'flex',
-        justifyContent:'center'
+        display:'flex'
     },
     confirm:{
         marginTop:50,
-        height:200,
-        width:220,
-    
+        height:200
     }
   
 })
