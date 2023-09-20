@@ -1,14 +1,17 @@
-import { View, Text, ScrollView, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
 import card from '../../../assets/cartao.png'
-import { FlatList } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native';
-import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import cartaoKebank from '../../../assets/cartaoKebank.png'
+import cartaoKebankVerso from '../../../assets/cartaoKebankVerso.png'
 import * as Animatable from 'react-native-animatable';
+import { useState } from 'react';
 
 export default function ScreenCards({ navigation }) {
 
-
+    const[nomeCartao, setNomeCartao] = useState(cartaoKebank)
+    const[animatable, setAnimatable]=useState('')
+    const[reverse, setReverse]=useState('')
+  
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -33,8 +36,26 @@ export default function ScreenCards({ navigation }) {
 
                 </View>
                 <View style={styles.slides}>
-                    <Image source={require('../../../assets/cartaoKebank.png')}
+                    <TouchableOpacity onPress={()=>{
+                    
+                        if(nomeCartao == cartaoKebank){
+                            setAnimatable("flipInX")
+                            setNomeCartao(cartaoKebankVerso)
+                            
+                        }
+                        
+                      else if (nomeCartao == cartaoKebankVerso){
+                        setAnimatable("flipInY")
+                        setNomeCartao(cartaoKebank)
+                   
+                    }
+                    
+            
+                      
+                    }}>
+                    <Animatable.Image animation={animatable}  source={nomeCartao}
                         style={styles.imgSlides} />
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.nameSlogan}>
