@@ -11,11 +11,12 @@ import cartao from  './../../../assets/cartao.png'
 import phone from './../../../assets/phone.png'
 import * as Animatable from 'react-native-animatable'
 
+
 export default function FirstScreen({ navigation }) {
     const [valor, setValor] = useState("R$ -------")
     const [olho, setOlho] = useState("eye-outline")
     const [open, setOpen] = useState(false)
-
+  
 
     const funcaoApp = [
         {
@@ -78,6 +79,7 @@ export default function FirstScreen({ navigation }) {
         }
 
     }
+   
     const [dolar, setDolar] = useState(0)
 
     const url = `https://economia.awesomeapi.com.br/last/USD-BRL`
@@ -120,11 +122,11 @@ export default function FirstScreen({ navigation }) {
                                 <TouchableOpacity
                                     onPress={() => {
                                         navigation.navigate(item.name)
+                                    
+                                      
                                     }}>
-                                    <Funcoes title={item.title} img={item.img} screen={item.path} />
-                                
+                                    <Funcoes title={item.title} img={item.img} screen={item.path} /> 
                                 </TouchableOpacity>
-
                             )
                         }}
                     />

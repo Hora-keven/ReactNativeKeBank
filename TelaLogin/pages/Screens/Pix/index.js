@@ -114,6 +114,7 @@ export default function ScreenPix({ navigation }) {
                 </View>
                 <SafeAreaView style={styles.window}>
                     <FlatList
+                        
                         data={ContatosCadastrados}
                         renderItem={({ item }) => {
                             return (

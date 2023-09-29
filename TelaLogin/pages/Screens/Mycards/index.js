@@ -36,25 +36,20 @@ export default function ScreenCards({ navigation }) {
 
                 </View>
                 <View style={styles.slides}>
-                    <TouchableOpacity onPress={()=>{
+                    <TouchableOpacity style={{backgroundColor:'white',height:100, justifyContent:'center'}} onPress={()=>{
                     
                         if(nomeCartao == cartaoKebank){
                             setAnimatable("flipInX")
-                            setNomeCartao(cartaoKebankVerso)
-                            
+                            setNomeCartao(cartaoKebankVerso)    
                         }
-                        
                       else if (nomeCartao == cartaoKebankVerso){
                         setAnimatable("flipInY")
                         setNomeCartao(cartaoKebank)
                    
-                    }
-                    
-            
-                      
+                    }  
                     }}>
-                    <Animatable.Image animation={animatable}  source={nomeCartao}
-                        style={styles.imgSlides} />
+                    <Animatable.Image animation={animatable} delay={2000} source={nomeCartao}
+                        />
                     </TouchableOpacity>
                 </View>
 

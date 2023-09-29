@@ -27,9 +27,8 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:80,
+        top:120,
      
-    
     },
     secondPartName:{
         fontFamily:'inter',

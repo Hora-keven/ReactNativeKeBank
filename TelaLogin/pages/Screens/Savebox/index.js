@@ -93,22 +93,17 @@ export default function ScreenBox({ navigation }) {
                             return (
                                 <TouchableOpacity onPress={abrirModal} >
                                     <Contatos nome={item.nome} img={item.img} />
-
                                 </TouchableOpacity>
-
                             )
                         }}
                     />
                 </SafeAreaView>
-
                 <View style={styles.nameSlogan}>
                     <View style={styles.title}>
                         <Text style={styles.txt}>Ke</Text>
                         <Text style={styles.secondPartName}>Bank</Text>
                     </View>
                 </View>
-
-
             </View>
         </ScrollView>
 

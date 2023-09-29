@@ -4,7 +4,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native'
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable'
-export default function ScreenExtract() {
+export default function ScreenExtract({navigation}) {
 
     const Transferencia = [
         {
@@ -35,7 +35,9 @@ export default function ScreenExtract() {
       
     ]
     const Historico = ({ title, valor }) => (
+        
         <View style={styles.function}>
+          
             <Text style={styles.textT} >Transferencia enviada</Text>
             <Text style={styles.txt}>{title}</Text>
             <Text style={styles.txt}>R${valor}</Text>

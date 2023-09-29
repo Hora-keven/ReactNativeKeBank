@@ -149,14 +149,12 @@ const styles = StyleSheet.create({
         borderRadius:7,
         position:'relative',
         alignItems:'center',
-        bottom:50
+        justifyContent:'center',
+        display:'flex'
+,     
       
     },
-    imgSlides:{
-    
-        top:150,
 
-    },
     Api:{
         top:30,
         color:'white'
