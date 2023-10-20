@@ -4,9 +4,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons';
 import { Image } from 'react-native';
 
+
 import pix from './assets/pixBLACK.png'
 import phone from './assets/phoneWHITE.png'
-import extrato from './assets/extratoBLACK.png'
+import extrato from './assets/extratoWhite.png'
 import locke from './assets/lockeBlack.png'
 import card from './assets/CARDBLACK.png'
 import emprestimo from './assets/emprestimoBLACK.png'
@@ -26,6 +27,8 @@ import ScreenApproved from './pages/Screens/Approved'
 
 const stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
+
+
 
 function TabScreen() {
   return (
@@ -57,9 +60,7 @@ function TabScreen() {
       <Tab.Screen
         name="ScreenPix"
         component={ScreenPix}
-
         options={{
-
           tabBarIcon: ({ size, color }) => {
             return (
               <Image source={pix}/>
@@ -71,45 +72,43 @@ function TabScreen() {
         name="ScreenBox"
         component={ScreenBox}
         options={{
-
           tabBarIcon: ({ size, color }) => {
             return (
               <Image source={locke}/>
             )
           }
         }}/>
+
       <Tab.Screen
         name="ScreenExtract"
         component={ScreenExtract}
         options={{
-          // headerShown:false,
           tabBarIcon: ({ size, color }) => {
             return (
               <Image source={extrato} />
             )
           }
         }}/>
+
       <Tab.Screen
         name="ScreenCard"
         component={ScreenCards}
         options={{
-          // headerShown:false,
           tabBarIcon: ({ size, color }) => {
             return (
               <Image source={card}/>
             )
           }
         }}/>
+
       <Tab.Screen
         name="Loan"
         component={ScreenLoan}
         options={{
-          // headerShown:false,
           tabBarIcon: ({ size, color }) => {
             return (
               <Image source={emprestimo}/>
             )
-           
           }
         }}/>
         
@@ -117,7 +116,7 @@ function TabScreen() {
         name="ScreenRecharge"
         component={ScreenRecharge}
         options={{
-          // headerShown:false,
+
           tabBarIcon: ({ size, color }) => {
             return (
               <Image source={phone}/>
@@ -135,14 +134,14 @@ export default function App() {
     <NavigationContainer>
       <stack.Navigator>
 
-        <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} />
+        <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }}/>
+        <stack.Screen name='Home' component={Home} options={{ headerShown: false }}/>
         <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
         <stack.Screen name='ScreenCard' component={ScreenCards} options={{ headerShown: false }} />
         <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
         <stack.Screen name='ScreenExtract' component={ScreenExtract} options={{ headerShown: false }} />
         <stack.Screen name='ScreenBox' component={ScreenBox} options={{ headerShown: false }} />
         <stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-        <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
         <stack.Screen name='ScreenRecharge' component={ScreenRecharge} options={{ headerShown: false }} />
         <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
         <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }} />

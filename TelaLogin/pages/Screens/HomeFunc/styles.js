@@ -67,8 +67,9 @@ const styles = StyleSheet.create({
     },
    
     img:{
-        width:50,
-        height:50,
+        width:70,
+        height:70,
+        borderRadius:35,
        
     },
     imgf:{
@@ -144,6 +145,24 @@ const styles = StyleSheet.create({
         
   
     },
+    confirm:{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        width:"100%",
+        position:"relative",
+        marginTop:45,
+   
+    
+    },
+    cameraOuGaleria:{
+        display:"flex",
+        flexDirection:"row",
+        width: 100, 
+        height: 100,
+       justifyContent:"space-between",
+       marginTop:50,
+    },
 
     function:{
         marginTop:10,
@@ -162,6 +181,12 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         
+    },
+    modal:{
+        backgroundColor:'#155e85',
+        alignItems:'center',
+        display:'flex',
+        justifyContent:'center'
     },
     slides:{
         backgroundColor:'#155e85',
