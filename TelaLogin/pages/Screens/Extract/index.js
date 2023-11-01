@@ -7,7 +7,7 @@ import { MaterialCommunityIcons, Feather, MaterialIcons } from '@expo/vector-ico
 
 import * as Animatable from 'react-native-animatable'
 export default function ScreenExtract({ navigation }) {
- 
+
     const Transferencia = [
         {
             id: 1,
@@ -35,7 +35,7 @@ export default function ScreenExtract({ navigation }) {
             valor: '100,00'
         },
     ]
-   
+
     const Historico = ({ title, valor }) => (
         <View style={styles.function}>
 
@@ -54,7 +54,6 @@ export default function ScreenExtract({ navigation }) {
                 </View>
                 <View style={styles.inputs}>
                     <TextInput style={styles.input} placeholderTextColor={'black'} placeholder=" Buscar: " />
-
                 </View>
 
                 <View>
@@ -79,14 +78,14 @@ export default function ScreenExtract({ navigation }) {
                         }}
                     />
                 </SafeAreaView>
-                </View>
-                <View style={styles.nameSlogan}>
-                    <View style={styles.title}>
-                        <Animatable.Text animation='pulse' delay={5000} style={styles.firstName}>Ke</Animatable.Text>
-                        <Text style={styles.secondPartName}>Bank</Text>
-                    </View>
             </View>
-         
+            <View style={styles.nameSlogan}>
+                <View style={styles.title}>
+                    <Animatable.Text animation='pulse' delay={5000} style={styles.firstName}>Ke</Animatable.Text>
+                    <Text style={styles.secondPartName}>Bank</Text>
+                </View>
+            </View>
+
         </ScrollView>
     )
 }

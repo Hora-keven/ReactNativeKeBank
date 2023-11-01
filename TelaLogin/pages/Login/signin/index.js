@@ -2,8 +2,7 @@ import { View, Text, TextInput, Handle } from "react-native";
 import styles from "./stylesUser";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from '../../firebaseConfig'
+import api from "../../Api/Api";
 import { useState } from "react";
 import * as Animatable from 'react-native-animatable';
 
@@ -11,19 +10,14 @@ export default function LoginUser({ navigation }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const auth = getAuth(app);
 
-    const logar = () => {
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          navigation.navigate("First")
-       
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-        });
+
+    async function logar (){
+        try {
+            const response = await api.get('pshysicalperson/')
+        } catch (error) {
+            
+        }
       
     }
     return (

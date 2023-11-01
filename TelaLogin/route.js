@@ -45,8 +45,19 @@ function TabScreen() {
         tabBarInactiveTintColor: 'white'
       }}>
 
-      <Tab.Screen
+    <Tab.Screen
         name="Home"
+        component={Home}
+
+        options={{
+          tabBarStyle: { display: 'none' },
+          tabBarIcon: ({ size, color }) => (
+            <Feather name="home" size={22} color={color} />
+          )
+         }}/>
+
+      <Tab.Screen
+        name="HomeFunction"
         component={FirstScreen}
 
         options={{
