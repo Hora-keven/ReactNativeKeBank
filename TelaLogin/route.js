@@ -23,6 +23,7 @@ import ScreenCards from './pages/Screens/Mycards'
 import ScreenBox from './pages/Screens/Savebox'
 import ScreenRecharge from './pages/Screens/Phonerecharge'
 import ScreenApproved from './pages/Screens/Approved'
+import ApiProvider from './pages/context/APicontext';
 
 
 const stack = createStackNavigator()
@@ -143,6 +144,9 @@ function TabScreen() {
 export default function App() {
   return (
     <NavigationContainer>
+      <ApiProvider>
+
+  
       <stack.Navigator>
 
         <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }}/>
@@ -159,7 +163,7 @@ export default function App() {
         <stack.Screen name='ScreenApproved' component={ScreenApproved} options={{ headerShown: false }} />
 
       </stack.Navigator>
-
+      </ApiProvider>
     </NavigationContainer>
   );
 }

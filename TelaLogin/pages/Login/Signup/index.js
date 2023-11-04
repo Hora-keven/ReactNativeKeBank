@@ -2,9 +2,9 @@ import { View, Text, TextInput } from "react-native";
 import styles from "./styles";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import api from './../../Api/Api'
-
+import { ApiContext } from "../../context/APicontext";
 
 export default function Login({ navigation }) {
     const [nome, setNome] = useState("")
@@ -14,10 +14,11 @@ export default function Login({ navigation }) {
     const [cpf, setCpf] = useState("")
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
+    const {token, setToken} = useContext(ApiContext)
 
-        const  createUser = async ()=>{
+    const  createUser = async ()=>{
                 console.log(nome)
-                const response = await api.post('users/',{
+                api.post('users/',{
                     username:nome,
                     first_name:nome,
                     surname:sobrenome,
@@ -25,16 +26,24 @@ export default function Login({ navigation }) {
                     password:senha,
                     phone_number:numero
 
-                })
-            .then(function (resṕ) {
-                console.log(resṕ.data);
+                }).then(function (response) {
+                console.log(response.data);
               })
               .catch(function (error) {
                 console.error(error);
               });
-          
+              }
+              api.post('auth/token/login/',{
+                username:nome,
+                password:senha
+
+          }).then(function(response){
+            setToken(response.data)
+            console.log(token)
+          }).catch(function (error) {
+            console.error(error);
+          });
         }
-   
     return (
         <View style={styles.container}>
 
