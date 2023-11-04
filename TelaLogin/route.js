@@ -47,7 +47,7 @@ function TabScreen() {
 
     <Tab.Screen
         name="Home"
-        component={Home}
+        component={LoginUser}
 
         options={{
           tabBarStyle: { display: 'none' },

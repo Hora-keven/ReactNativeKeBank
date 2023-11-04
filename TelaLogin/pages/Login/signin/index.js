@@ -12,9 +12,12 @@ export default function LoginUser({ navigation }) {
     const [password, setPassword] = useState('')
 
 
+
     async function logar (){
         try {
-            const response = await api.get('pshysicalperson/')
+            const response = await api.post('pshysicalperson/',{
+                
+            })
         } catch (error) {
             
         }

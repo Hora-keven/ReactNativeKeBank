@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
         top:115,
         left:115
     },
+    
     polign:{
         backgroundColor:'white',
         width:'145%',

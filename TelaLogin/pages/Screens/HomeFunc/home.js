@@ -160,7 +160,7 @@ export default function FirstScreen({ navigation }) {
                     <View style={styles.containerImg}>
                         <TouchableOpacity onPress={abrirModal}>
                             <Image
-                                source={{uri:(imageG)}}
+                                source={{uri:(imageJ)}}
                                 style={styles.img} />
                         </TouchableOpacity>
                     </View>
