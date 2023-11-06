@@ -3,23 +3,31 @@ import styles from "./stylesUser";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import api from "../../Api/Api";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as Animatable from 'react-native-animatable';
-
+import { ApiContext } from "../../context/APicontext";
 export default function LoginUser({ navigation }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-
+    const {tokenUser} = useContext(ApiContext)
 
     async function logar (){
-        try {
-            const response = await api.post('pshysicalperson/',{
-                
-            })
-        } catch (error) {
-            
+        try{
+            api.post('auth/token/login/',{
+                username:email,
+                password:password
+    
+          }).then(function(response){
+            console.log(response.data)
+            tokenUser(response.data.auth_token)
+            navigation.navigate("PhysicalOrJuridic")
+          }).catch(function (error) {
+            console.error(error);
+          });
+
+        }catch(error){
+            console.log(error)
         }
       
     }

@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         height:'40%',
         transform:'rotate(15.5deg)',
         position:'relative',
-        top:119,
+        top:219,
         right:60,
         zIndex:10,
         

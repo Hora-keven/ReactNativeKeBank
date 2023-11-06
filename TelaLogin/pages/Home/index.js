@@ -17,14 +17,14 @@ export default function Home({navigation}){
             </View>
 
                 <Animatable.View animation='fadeInUp' style={styles.title}>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('Login_User')}} style={styles.title}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Login')}} style={styles.title}>
                     <Text style={styles.txtInformation}>Novo aqui? </Text>
                     <Text style={styles.secondInformationTxt}>Cadastre-se</Text>
                     </TouchableOpacity>
                 </Animatable.View>
 
                 <Animatable.View animation='fadeInUp'  style={styles.title_two}>
-                    <TouchableOpacity  onPress={()=>{navigation.navigate('Login')}} style={styles.title}>
+                    <TouchableOpacity  onPress={()=>{navigation.navigate('Login_User')}} style={styles.title}>
                     <Text style={styles.txtInformation}>Já sou </Text>
                     <Text style={styles.secondInformationTxt}>cadastrado</Text>
                     </TouchableOpacity>

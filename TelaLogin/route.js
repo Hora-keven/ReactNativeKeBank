@@ -13,8 +13,10 @@ import card from './assets/CARDBLACK.png'
 import emprestimo from './assets/emprestimoBLACK.png'
 
 import Home from './pages/Home'
-import Login from './pages/Login/signin'
-import LoginUser from './pages/Login/Signup'
+import PhysicalOrJuridic from './pages/Home/phyperOrJuriPer'
+import Physical from './pages/Login/Signup/Physical';
+import LoginUser from './pages/Login/signin'
+import Login from './pages/Login/Signup'
 import FirstScreen from './pages/Screens/HomeFunc/home.js'
 import ScreenPix from './pages/Screens/Pix'
 import ScreenExtract from './pages/Screens/Extract'
@@ -23,13 +25,13 @@ import ScreenCards from './pages/Screens/Mycards'
 import ScreenBox from './pages/Screens/Savebox'
 import ScreenRecharge from './pages/Screens/Phonerecharge'
 import ScreenApproved from './pages/Screens/Approved'
+
 import ApiProvider from './pages/context/APicontext';
+import Juridic from './pages/Login/Signup/Juridic';
 
 
 const stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
-
-
 
 function TabScreen() {
   return (
@@ -48,7 +50,7 @@ function TabScreen() {
 
     <Tab.Screen
         name="Home"
-        component={LoginUser}
+        component={Home}
 
         options={{
           tabBarStyle: { display: 'none' },
@@ -148,7 +150,6 @@ export default function App() {
 
   
       <stack.Navigator>
-
         <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }}/>
         <stack.Screen name='Home' component={Home} options={{ headerShown: false }}/>
         <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
@@ -161,7 +162,9 @@ export default function App() {
         <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
         <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }} />
         <stack.Screen name='ScreenApproved' component={ScreenApproved} options={{ headerShown: false }} />
-
+        <stack.Screen name='PhysicalOrJuridic' component={PhysicalOrJuridic} options={{ headerShown: false }} />
+        <stack.Screen name='Physical' component={Physical} options={{ headerShown: false }} />
+        <stack.Screen name='Juridic' component={Juridic} options={{ headerShown: false }} />
       </stack.Navigator>
       </ApiProvider>
     </NavigationContainer>

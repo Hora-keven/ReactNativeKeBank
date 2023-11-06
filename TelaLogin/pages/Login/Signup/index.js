@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, Alert } from "react-native";
 import styles from "./styles";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
@@ -10,40 +10,38 @@ export default function Login({ navigation }) {
     const [nome, setNome] = useState("")
     const [numero, setNumero] = useState("")
     const [sobrenome, setSobrenome] = useState("")
-    const [dataDeNas, setDataDeNasc] = useState("")
-    const [cpf, setCpf] = useState("")
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-    const {token, setToken} = useContext(ApiContext)
+    const {userLog} = useContext(ApiContext)
 
-    const  createUser = async ()=>{
-                console.log(nome)
+    
+        const createUser = async () =>{
+            try{
+
                 api.post('users/',{
-                    username:nome,
+                    username:email,
                     first_name:nome,
                     surname:sobrenome,
                     email:email,
                     password:senha,
                     phone_number:numero
-
+    
                 }).then(function (response) {
                 console.log(response.data);
+                userLog(nome, email, sobrenome)
+              
+                navigation.navigate('Login_User')
+
               })
               .catch(function (error) {
                 console.error(error);
               });
-              }
-              api.post('auth/token/login/',{
-                username:nome,
-                password:senha
 
-          }).then(function(response){
-            setToken(response.data)
-            console.log(token)
-          }).catch(function (error) {
-            console.error(error);
-          });
-        }
+            }catch(error){
+                console.log(error)
+            }
+            }
+        
     return (
         <View style={styles.container}>
 
@@ -57,8 +55,8 @@ export default function Login({ navigation }) {
             <View style={styles.inputs}>
                 <TextInput style={styles.input} value={nome} onChangeText={setNome} placeholder="Nome:" placeholderTextColor={'white'} />
                 <TextInput style={styles.input} value={sobrenome} onChangeText={setSobrenome} placeholder="Sobrenome:" placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={dataDeNas} onChangeText={setDataDeNasc} placeholder="Data de nascimento: " placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={cpf} onChangeText={setCpf} inputMode="numeric" placeholder="Digite seu CPF: " placeholderTextColor={'white'} />
+                {/* <TextInput style={styles.input} value={dataDeNas} onChangeText={setDataDeNasc} placeholder="Data de nascimento: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={cpf} onChangeText={setCpf} inputMode="numeric" placeholder="Digite seu CPF/CNPJ: " placeholderTextColor={'white'} /> */}
                 
                 <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholder="Digite seu E-mail: " placeholderTextColor={'white'} />
                 <TextInput style={styles.input} value={numero} onChangeText={setNumero} placeholder="Digite seu numero de telefone: " placeholderTextColor={'white'} />
@@ -76,4 +74,4 @@ export default function Login({ navigation }) {
 
         </View>
     )
-}
+    }
