@@ -19,7 +19,7 @@ export default function LoginUser({ navigation }) {
                 password:password
     
           }).then(function(response){
-            console.log(response.data)
+     
             tokenUser(response.data.auth_token)
             navigation.navigate("PhysicalOrJuridic")
           }).catch(function (error) {

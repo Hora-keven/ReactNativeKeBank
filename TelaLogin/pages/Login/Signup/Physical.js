@@ -3,11 +3,12 @@ import styles from "./styles";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import { useContext, useState } from 'react';
-import api from './../../Api/Api'
+
 import { ApiContext } from "../../context/APicontext";
+import apiWithToken from "../../Api/ApiToken";
 
 export default function Physical({ navigation }) {
-    const {user} = useContext(ApiContext)
+    const {user, token} = useContext(ApiContext)
     const [bornDate, setBornDate] = useState("")
     const [cpf, setCpf] = useState("")
     const [rg, setRg] = useState("")
@@ -16,8 +17,8 @@ export default function Physical({ navigation }) {
     
         const createUser = async () =>{
             try{
-
-                api.post('physicalperson/',{
+                apiWithToken.defaults.headers.Authorization = `Token ${token}`
+                apiWithToken.post('physicalperson/',{
                     physical_person:user.name,
                     born_date:bornDate,
                     cpf:cpf,
