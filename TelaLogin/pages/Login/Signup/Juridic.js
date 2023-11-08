@@ -7,7 +7,7 @@ import apiWithToken from './../../Api/Api'
 import { ApiContext } from "../../context/APicontext";
 
 export default function Juridic({ navigation }) {
-    const {user} = useContext(ApiContext)
+    const {user, token} = useContext(ApiContext)
     const [openDate, setOpenDate] = useState("")
     const [cnpj, setCnpj] = useState("")
     const [stateRegistration, setStateRegistration] = useState("")
@@ -16,16 +16,16 @@ export default function Juridic({ navigation }) {
     
         const createUser = async () =>{
             try{
-
-                apiWithToken.post('juridicperson/',{
+                api.defaults.headers.Authorization = `Token ${token}`
+                api.post('juridicperson/',{
                     juridic_person:user.name,
-                    state_registration:bornDate,
+                    state_registration:stateRegistration,
                     cnpj:cnpj,
                     open_date:openDate,
                 
     
                 }).then(function (response) {
-                console.log(response.data);
+               
                 navigation.navigate('Login')
 
               })
@@ -50,9 +50,9 @@ export default function Juridic({ navigation }) {
 
             <View style={styles.inputs}>
            
-                <TextInput style={styles.input} value={openDate} onChangeText={setOpenDate} placeholder="Put your open date: " placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={cnpj} onChangeText={setCnpj} inputMode="numeric" placeholder="Put your CNPJ: " placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={stateRegistration} onChangeText={setStateRegistration} placeholder="Put your state registration: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={openDate} onChangeText={(text)=>setOpenDate(text)} placeholder="Put your open date: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={cnpj} onChangeText={(text)=>setCnpj(text)} inputMode="numeric" placeholder="Put your CNPJ: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={stateRegistration} onChangeText={(text)=>setStateRegistration(text)} placeholder="Put your state registration: " placeholderTextColor={'white'} />
              
             </View>
             <View>

@@ -13,7 +13,6 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     const {userLog} = useContext(ApiContext)
-
     
         const createUser = async () =>{
             try{
@@ -27,8 +26,7 @@ export default function Login({ navigation }) {
                     phone_number:numero
     
                 }).then(function (response) {
-                console.log(response.data);
-                userLog(nome, email, sobrenome)
+                userLog(response.data.id, nome, email, sobrenome)
               
                 navigation.navigate('Login_User')
 
@@ -41,7 +39,8 @@ export default function Login({ navigation }) {
                 console.log(error)
             }
             }
-        
+
+    
     return (
         <View style={styles.container}>
 
