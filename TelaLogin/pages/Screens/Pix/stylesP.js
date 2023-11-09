@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:80,
+        top:700,
      
     
     },
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
    
     inputs:{
         width:'85%',
-        bottom:10,
+        top:300,
 
     },
     input:{
@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
    
     rectangle:{
         width:'88%',
-        height:'6%',
+        height:'50%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        bottom:50,
+       
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        top:70
 
     },
   
@@ -119,13 +120,13 @@ const styles = StyleSheet.create({
         fontFamily:'inter',
         fontSize:22,
         left:155,
-        top:15,
+        top:335,
         position:'relative'
       
     },
     textTitle:{
         fontSize:23,
-        top:30,
+        top:400,
     },
     modal:{
         backgroundColor:'#155e85',

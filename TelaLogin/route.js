@@ -50,7 +50,7 @@ function TabScreen() {
 
     <Tab.Screen
         name="Home"
-        component={Home}
+        component={FirstScreen}
 
         options={{
           tabBarStyle: { display: 'none' },

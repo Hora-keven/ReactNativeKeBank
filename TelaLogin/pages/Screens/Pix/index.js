@@ -7,9 +7,10 @@ import { TextInputMask } from 'react-native-masked-text'
 import { Modalize } from 'react-native-modalize';
 
 export default function ScreenPix({ navigation }) {
-    const [chavePix, setChavePix] = useState("")
-    const [senha, setSenha] = useState("")
+    const [toPix, setToPix] = useState("")
+    const [password, setPassword] = useState("")
     const[valor,setValor]=useState("")
+
     const ContatosCadastrados = [
         {
             id: 1,
@@ -57,10 +58,10 @@ export default function ScreenPix({ navigation }) {
                     <TextInputMask
                         type='cpf'
                         style={styles.input}
-                        value={chavePix}
+                        value={toPix}
                         placeholder='Digite a chave do pix:'
                         placeholderTextColor={'black'}
-                        onChangeText={text => { setChavePix(text) }} />
+                        onChangeText={text => { setToPix(text) }} />
                 </View>
 
                 <View>
@@ -79,8 +80,8 @@ export default function ScreenPix({ navigation }) {
                                 options={{
                                     
                                     precision: 2,
-                                    separator: ',',
-                                    delimiter: '.',
+                                    separator: '.',
+                                    delimiter: '',
                                     unit: 'R$',
                                     suffixUnit: ''
                                 }}
@@ -93,26 +94,18 @@ export default function ScreenPix({ navigation }) {
                             />
                                 <View style={{ top: 50 }}>
 
-                            <TextInputMask
-                                type='only-numbers'
-                                keyboardAppearance="default"
-                                maxLength={4}
-                                placeholder='Digite sua senha:'
-                                placeholderTextColor={'white'}
-                                style={{ borderBottomColor: 'white', borderBottomWidth: 2 }}
-                                value={senha}
-                                onChangeText={text => { setSenha(text) }} />
+                                <TextInput value={password}  onChangeText={(text)=>setPassword(text)}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
 
                         </View>
-                        <TouchableOpacity onPress={()=>{navigation.navigate("ScreenApproved")}}>
+                        <TouchableOpacity >
                            <Ionicons style={styles.button} name="ios-arrow-forward" />
                         </TouchableOpacity>
                     </View>
                 </Modalize>
                 <View>
-                    <Text style={styles.textTitle}>Contatos cadastrados</Text>
+                    <Text style={styles.textTitle}>{senha} cadastrados</Text>
                 </View>
-                <SafeAreaView style={styles.window}>
+                {/* <SafeAreaView style={styles.window}>
                     <FlatList
                         
                         data={ContatosCadastrados}
@@ -122,7 +115,7 @@ export default function ScreenPix({ navigation }) {
                             )
                         }}
                     />
-                </SafeAreaView>
+                </SafeAreaView> */}
 
                 <View style={styles.nameSlogan}>
                     <View style={styles.title}>

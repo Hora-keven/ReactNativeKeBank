@@ -6,11 +6,13 @@ import api from "../../Api/Api";
 import { useContext, useState } from "react";
 import * as Animatable from 'react-native-animatable';
 import { ApiContext } from "../../context/APicontext";
+
+
 export default function LoginUser({ navigation }) {
 
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
-    const {tokenUser, userLog} = useContext(ApiContext)
+    const {tokenUser, userLog, informationsAccountUser} = useContext(ApiContext)
 
     async function logar (){
         try{
@@ -19,20 +21,38 @@ export default function LoginUser({ navigation }) {
                 password:password
     
           }).then(function(response){
-     
             tokenUser(response.data.auth_token)
             
             try {
-                api.post("users/me", {
-                   username:user,
-                   password:password 
-                }).then(function(response){
+                api.defaults.headers.Authorization = `Token ${response.data.auth_token}`
+                api.get("users/me/").then(function(response){
+                    console.log(response.data.id)
                     userLog(response.data.id, response.data.first_name, response.data.email, response.data.surname )
+                  
                 })
+                try {
+                    api.get("account/"+user).then(function(response){
+                        console.log(response.data[0].id)
+                        informationsAccountUser(
+                            response.data[0].id,
+                            response.data[0].agency,
+                            response.data[0].number,
+                            response.data[0].number_verificate,
+                            response.data[0].limit
+                        
+                        )
+                        navigation.navigate("First")
+                    }).catch(function(error){
+                        console.error(error)
+                    })
+                      
+                } catch (error) {
+                    console.error(error)
+                }
             } catch (error) {
-                
+                console.error(error)
             }
-            navigation.navigate("First")
+          
           }).catch(function (error) {
             console.error(error);
           });
@@ -43,7 +63,6 @@ export default function LoginUser({ navigation }) {
       
     }
     return (
-
         <View style={styles.container}>
 
             <View style={styles.nameSlogan}>

@@ -1,7 +1,7 @@
 import { View, Image, Text, TouchableOpacity, SafeAreaView, FlatList } from "react-native"
 import styles from "./styles";
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { Modalize } from 'react-native-modalize';
 import { ScrollView } from "react-native";
 import pix from './../../../assets/pix.png'
@@ -12,6 +12,7 @@ import cartao from './../../../assets/cartao.png'
 import phone from './../../../assets/phone.png'
 import * as Animatable from 'react-native-animatable'
 import * as ImagePicker from 'expo-image-picker';
+import { ApiContext } from "../../context/APicontext";
 
 export default function FirstScreen({ navigation }) {
     const [valor, setValor] = useState("R$ -------")
@@ -19,7 +20,7 @@ export default function FirstScreen({ navigation }) {
     const [open, setOpen] = useState(false)
     const [imageG, setImageG] = useState('https://i.pinimg.com/736x/49/8e/ca/498eca19e49ea51a85a6f6c2e9597987.jpg')
     const [imageJ, setImageJ] = useState('https://i.pinimg.com/736x/0d/4a/6c/0d4a6c0d1d6411a7c5a30837d074a1e6.jpg')
-
+    const{user, userAccount} = useContext(ApiContext)
     const funcaoApp = [
         {
             id: 1,
@@ -72,7 +73,7 @@ export default function FirstScreen({ navigation }) {
     function Olho() {
         setOpen(true)
         if (open) {
-            setValor('R$100,00')
+            setValor(`R$ ${userAccount.limit}`)
             setOlho("eye-off-outline")
             setOpen(false)
         } else {
@@ -93,6 +94,7 @@ export default function FirstScreen({ navigation }) {
 
     })
 
+    
     const modalizeRef = useRef(<Modalize />);
 
     const abrirModal = () => {
@@ -164,7 +166,7 @@ export default function FirstScreen({ navigation }) {
                                 style={styles.img} />
                         </TouchableOpacity>
                     </View>
-                    <Text style={styles.txtUser}>Olá Keven!</Text>
+                    <Text style={styles.txtUser}>Olá {user.name}!</Text>
                 </View>
                 <View style={styles.rectangle}>
                     <Text style={styles.txtInformation}>Conta</Text>

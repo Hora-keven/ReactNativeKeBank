@@ -7,6 +7,8 @@ function ApiProvider({children}){
     const [token, setToken] = useState()
     const [user, setUser] = useState({})
     const [optionAccount, setAccount] = useState()
+    const [userAccount, setUserAccount]= useState({})
+
     function userLog(id, name, email, surname){
 
         setUser({
@@ -17,18 +19,28 @@ function ApiProvider({children}){
         })
 
     }
-    const tokenUser = (tk)=>{
+    const informationsAccountUser = (id, agency, numberVerificate, number, limit )=>{
+        setUserAccount({
+            id:id,
+            agency:agency,
+            numberVerificate:numberVerificate,
+            number:number,
+            limit:limit
+
+        })
+    }
+    const tokenUser = (tk) =>{
     
         if(tk){
             setToken(tk)
         }
     }
-    const changeOptionAccount = (account)=> {
+    const changeOptionAccount = (account) => {
         setAccount(account)
     }
   
     return (
-    <ApiContext.Provider value={{token, tokenUser, user, userLog, changeOptionAccount, optionAccount}}>{children}</ApiContext.Provider>
+    <ApiContext.Provider value={{token, tokenUser, userAccount, user, informationsAccountUser, userLog, changeOptionAccount, optionAccount}}>{children}</ApiContext.Provider>
     )
 }
 
