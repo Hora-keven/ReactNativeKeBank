@@ -8,20 +8,31 @@ import * as Animatable from 'react-native-animatable';
 import { ApiContext } from "../../context/APicontext";
 export default function LoginUser({ navigation }) {
 
-    const [email, setEmail] = useState('')
+    const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
-    const {tokenUser} = useContext(ApiContext)
+    const {tokenUser, userLog} = useContext(ApiContext)
 
     async function logar (){
         try{
             api.post('auth/token/login/',{
-                username:email,
+                username:user,
                 password:password
     
           }).then(function(response){
      
             tokenUser(response.data.auth_token)
-            navigation.navigate("PhysicalOrJuridic")
+            
+            try {
+                api.post("users/me", {
+                   username:user,
+                   password:password 
+                }).then(function(response){
+                    userLog(response.data.id, response.data.first_name, response.data.email, response.data.surname )
+                })
+            } catch (error) {
+                
+            }
+            navigation.navigate("First")
           }).catch(function (error) {
             console.error(error);
           });
@@ -43,8 +54,8 @@ export default function LoginUser({ navigation }) {
             </View>
 
             <View style={styles.inputs}>
-                <TextInput value={email} onChangeText={setEmail} style={styles.input} placeholderTextColor={'white'} placeholder="Digite seu CPF: " />
-                <TextInput value={password}  onChangeText={setPassword}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
+                <TextInput value={user} onChangeText={(text)=>setUser(text)} style={styles.input} placeholderTextColor={'white'} placeholder="Digite seu CPF: " />
+                <TextInput value={password}  onChangeText={(text)=>setPassword(text)}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
             </View>
 
             <View>

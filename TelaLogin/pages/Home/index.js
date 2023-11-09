@@ -17,7 +17,7 @@ export default function Home({navigation}){
             </View>
 
                 <Animatable.View animation='fadeInUp' style={styles.title}>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('Login')}} style={styles.title}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('PhysicalOrJuridic')}} style={styles.title}>
                     <Text style={styles.txtInformation}>Novo aqui? </Text>
                     <Text style={styles.secondInformationTxt}>Cadastre-se</Text>
                     </TouchableOpacity>
