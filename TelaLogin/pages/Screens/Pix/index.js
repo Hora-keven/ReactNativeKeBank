@@ -13,7 +13,7 @@ export default function ScreenPix({ navigation }) {
     const [keyPix, setKeyPix] = useState("")
     const [password, setPassword] = useState("")
     const[value,setValue]=useState("")
-    const {user} = useContext(ApiContext)
+    const {userAccount} = useContext(ApiContext)
 
     const ContatosCadastrados = [
         {
@@ -40,14 +40,16 @@ export default function ScreenPix({ navigation }) {
     ]
     const noMaskPix = keyPix.replace(/\.|-/gm, "")
     const maskValue = value.replace("R$", "")
+    
     const sendPix =() =>{
         try {
             api.get(`account/${noMaskPix}`).then(function(response){
-                console.log(response.data)
-              
+                console.log(response.data[0])
+                console.log(noMaskPix)
                 api.post("pix/", {
-                    from_account:user.id,
-                    value:maskValue,
+
+                    from_account:userAccount.id,
+                    value:parseFloat(maskValue),
                     to_account:response.data[0].id
         
                 }).then(function(response){
@@ -121,7 +123,7 @@ export default function ScreenPix({ navigation }) {
                                     
                                     precision: 2,
                                     separator: '.',
-                                    delimiter: '',
+                                    delimiter: '.',
                                     unit: 'R$',
                                     suffixUnit: ''
                                 }}

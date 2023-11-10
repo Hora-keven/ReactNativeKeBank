@@ -16,6 +16,7 @@ export default function LoginUser({ navigation }) {
    
     async function logar (){
         try{
+            console.log(noMask)
             api.post('auth/token/login/',{
                 username:noMask,
                 password:password
