@@ -72,21 +72,20 @@ const styles = StyleSheet.create({
         borderRadius:35,
        
     },
-    imgf:{
-        width:25,
-        height:25.7,
-        bottom:15,
-        left:70,
-    },
+   
     containerImgF:{
-        width:100,
+        width:50,
+        height:50,
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"
     },
     containerImg:{
         width:70,
         height:'13%',
         position:'relative',
         bottom:290,
-        right:245,
+        right:255,
         marginTop:410,
         backgroundColor:'#155e85',
         borderRadius:35,
@@ -138,7 +137,7 @@ const styles = StyleSheet.create({
     text:{
         fontFamily:'sans-serif',
         fontSize:18,
-        top:43,
+       
         textAlign:'center',
         color:'#155e85'
        
@@ -167,6 +166,9 @@ const styles = StyleSheet.create({
     function:{
         marginTop:10,
         backgroundColor:'#fff',
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
         width:168,
         height:80, 
         borderRadius:7,

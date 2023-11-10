@@ -1,15 +1,19 @@
-import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, TextInput } from 'react-native'
 import styles from './stylesP'
 import { Ionicons } from '@expo/vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { TextInputMask } from 'react-native-masked-text'
 import { Modalize } from 'react-native-modalize';
+import api from '../../Api/Api';
+import { ApiContext } from '../../context/APicontext';
 
 export default function ScreenPix({ navigation }) {
-    const [toPix, setToPix] = useState("")
+
+    const [keyPix, setKeyPix] = useState("")
     const [password, setPassword] = useState("")
-    const[valor,setValor]=useState("")
+    const[value,setValue]=useState("")
+    const {user} = useContext(ApiContext)
 
     const ContatosCadastrados = [
         {
@@ -34,11 +38,46 @@ export default function ScreenPix({ navigation }) {
         },
 
     ]
+    const noMaskPix = keyPix.replace(/\.|-/gm, "")
+    const maskValue = value.replace("R$", "")
+    const sendPix =() =>{
+        try {
+            api.get(`account/${noMaskPix}`).then(function(response){
+                console.log(response.data)
+              
+                api.post("pix/", {
+                    from_account:user.id,
+                    value:maskValue,
+                    to_account:response.data[0].id
+        
+                }).then(function(response){
+                    console.log(response.data)
+                }).catch(function(error){
+                    console.error(error)
+                })
+
+            }).then(function(response){
+                console.log(response.data)
+            }).catch(function(error){
+                console.error(error)
+            })
+           
+
+        } catch (error) {
+            console.error(error)  
+        }
+    
+        
+    }
+
+    
+
     const Contatos = ({ nome }) => (
         <View style={styles.function}>
             <Text style={styles.txtUser}>{nome}</Text>
         </View>
     )
+
     const modalizeRef = useRef(<Modalize />);
 
     const abrirModal = () => {
@@ -55,13 +94,14 @@ export default function ScreenPix({ navigation }) {
                 </View>
 
                 <View style={styles.inputs}>
+                    <Text>{value}</Text>
                     <TextInputMask
                         type='cpf'
-                        style={styles.input}
-                        value={toPix}
+                        style={[styles.input, , {borderBottomColor:"black", borderBottomWidth:1, color:"black"}]}
+                        value={keyPix}
                         placeholder='Digite a chave do pix:'
                         placeholderTextColor={'black'}
-                        onChangeText={text => { setToPix(text) }} />
+                        onChangeText={text => { setKeyPix(text) }} />
                 </View>
 
                 <View>
@@ -75,7 +115,7 @@ export default function ScreenPix({ navigation }) {
 
 
                     <TextInputMask 
-                            style={{ borderBottomColor: 'white', borderBottomWidth: 2 }}
+                            style={[styles.input, { borderBottomColor: 'white', borderBottomWidth: 2 }]}
                                 type={'money'}
                                 options={{
                                     
@@ -85,25 +125,29 @@ export default function ScreenPix({ navigation }) {
                                     unit: 'R$',
                                     suffixUnit: ''
                                 }}
-                                value={valor}
+                                value={value}
                                 placeholder={'R$'}
                                 placeholderTextColor={'white'}
                                 onChangeText={text => {
-                                   setValor(text)
-                                }}
-                            />
-                                <View style={{ top: 50 }}>
+                                   setValue(text)
+                                }}/>
 
-                                <TextInput value={password}  onChangeText={(text)=>setPassword(text)}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
+                                <View style={{ top: 50 }}>
+                                <TextInput 
+                                secureTextEntry={true} 
+                                value={password}  
+                                onChangeText={(text)=>setPassword(text)} 
+                                style={styles.input} placeholderTextColor={'white'}
+                                placeholder={"Digite sua senha: "} />
 
                         </View>
-                        <TouchableOpacity >
+                        <TouchableOpacity onPress={sendPix}>
                            <Ionicons style={styles.button} name="ios-arrow-forward" />
                         </TouchableOpacity>
                     </View>
                 </Modalize>
                 <View>
-                    <Text style={styles.textTitle}>{senha} cadastrados</Text>
+                    <Text style={styles.textTitle}>Contatos cadastrados</Text>
                 </View>
                 {/* <SafeAreaView style={styles.window}>
                     <FlatList
@@ -117,12 +161,12 @@ export default function ScreenPix({ navigation }) {
                     />
                 </SafeAreaView> */}
 
-                <View style={styles.nameSlogan}>
+                {/* <View style={styles.nameSlogan}>
                     <View style={styles.title}>
                         <Text style={styles.txt}>Ke</Text>
                         <Text style={styles.secondPartName}>Bank</Text>
                     </View>
-                </View>
+                </View> */}
 
 
             </View>

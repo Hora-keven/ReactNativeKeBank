@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:700,
+        top:300,
      
     
     },
@@ -46,18 +46,19 @@ const styles = StyleSheet.create({
    
     inputs:{
         width:'85%',
-        top:300,
+       bottom:20,
 
     },
     input:{
        borderBottomWidth:1,
-       borderBottomColor:'black',
+       borderBottomColor:'white',
        width:'100%',
+       color:"white"
     
     },
     button:{
         fontSize:20,
-        color:'white',
+        color:"white",
         left:199,
         top:70
     },  
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
    
     rectangle:{
         width:'88%',
-        height:'50%',
+        height:'6%',
         backgroundColor:'#155e85',
         borderRadius:8,
        
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        top:70
+        bottom:300
 
     },
   
@@ -118,15 +119,15 @@ const styles = StyleSheet.create({
     Arrowbutton:{
         color:'black',
         fontFamily:'inter',
-        fontSize:22,
+        fontSize:32,
         left:155,
-        top:335,
+        top:10,
         position:'relative'
       
     },
     textTitle:{
         fontSize:23,
-        top:400,
+        top:10,
     },
     modal:{
         backgroundColor:'#155e85',

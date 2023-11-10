@@ -157,10 +157,10 @@ export default function Physical({ navigation }) {
                 <View style={{position:"relative", left:215, bottom:27.5}}>
                     <TouchableOpacity onPress={searchPac} style={{borderRadius:2, borderWidth:1, borderColor:"white", padding:4, width:55}}><Text style={{color:"white"}}>Buscar</Text></TouchableOpacity>
                 </View>
-                <TextInput style={[styles.input, {position:"relative", bottom:22}]} value={public_place} onChangeText={(text)=>setPublic_space(text)} placeholder="Put your public space: " placeholderTextColor={'white'} />
+                <TextInput style={[styles.input, {position:"relative", bottom:27}]} value={public_place} onChangeText={(text)=>setPublic_space(text)} placeholder="Put your public space: " placeholderTextColor={'white'} />
             </View>
-            <View style={{top:100, position:"relative"}}>
-               <DropdownChoice width={200} color="black" top={10}/>
+            <View style={{top:140, position:"relative"}}>
+               <DropdownChoice   />
             </View>
             <View style={{display:"flex", alignItems:"flex-start"}}>
                 <TouchableOpacity onPress={createAccount} style={styles.Arrowbutton}>

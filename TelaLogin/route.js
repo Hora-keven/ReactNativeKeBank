@@ -5,19 +5,19 @@ import { Feather } from '@expo/vector-icons';
 import { Image } from 'react-native';
 
 
-import pix from './assets/pixBLACK.png'
+import pix from './assets/pixWhite.png'
 import phone from './assets/phoneWHITE.png'
 import extrato from './assets/extratoWhite.png'
-import locke from './assets/lockeBlack.png'
-import card from './assets/CARDBLACK.png'
-import emprestimo from './assets/emprestimoBLACK.png'
+import locke from './assets/lockeWhite.png'
+import card from './assets/cartaoWhite.png'
+import emprestimo from './assets/emprestimoWhite.png'
 
 import Home from './pages/Home'
 import PhysicalOrJuridic from './pages/Home/phyperOrJuriPer'
 import Physical from './pages/Login/Signup/Physical';
 import LoginUser from './pages/Login/signin'
 import Login from './pages/Login/Signup'
-import FirstScreen from './pages/Screens/HomeFunc/home.js'
+import FirstScreen from './pages/Screens/HomeFunc/index.js'
 import ScreenPix from './pages/Screens/Pix'
 import ScreenExtract from './pages/Screens/Extract'
 import ScreenLoan from './pages/Screens/Loan/index'
@@ -48,27 +48,31 @@ function TabScreen() {
         tabBarInactiveTintColor: 'white'
       }}>
 
-    <Tab.Screen
-        name="Home"
-        component={FirstScreen}
-
-        options={{
-          tabBarStyle: { display: 'none' },
-          tabBarIcon: ({ size, color }) => (
-            <Feather name="home" size={22} color={color} />
-          )
-         }}/>
 
       <Tab.Screen
-        name="HomeFunction"
+        name="Home"
+        component={Home}
+
+        options={{
+          tabBarStyle: { display: 'none' },
+          tabBarIcon: () => (
+            <Feather name="login" size={22} />
+          )
+        }} />
+
+      <Tab.Screen
+        name="First"
         component={FirstScreen}
 
         options={{
           tabBarStyle: { display: 'none' },
           tabBarIcon: ({ size, color }) => (
+            
             <Feather name="home" size={22} color={color} />
+            
           )
-        }}/>
+        }} />
+
 
 
       <Tab.Screen
@@ -77,10 +81,10 @@ function TabScreen() {
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image source={pix}/>
+              <Image source={pix} />
             )
           }
-        }}/>
+        }} />
 
       <Tab.Screen
         name="ScreenBox"
@@ -88,10 +92,10 @@ function TabScreen() {
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image source={locke}/>
+              <Image source={locke} size={10} />
             )
           }
-        }}/>
+        }} />
 
       <Tab.Screen
         name="ScreenExtract"
@@ -102,7 +106,7 @@ function TabScreen() {
               <Image source={extrato} />
             )
           }
-        }}/>
+        }} />
 
       <Tab.Screen
         name="ScreenCard"
@@ -110,10 +114,10 @@ function TabScreen() {
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image source={card}/>
+              <Image source={card} />
             )
           }
-        }}/>
+        }} />
 
       <Tab.Screen
         name="Loan"
@@ -121,11 +125,11 @@ function TabScreen() {
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image source={emprestimo}/>
+              <Image source={emprestimo} />
             )
           }
-        }}/>
-        
+        }} />
+
       <Tab.Screen
         name="ScreenRecharge"
         component={ScreenRecharge}
@@ -133,11 +137,11 @@ function TabScreen() {
 
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image source={phone}/>
+              <Image source={phone} />
             )
           }
 
-        }}/>
+        }} />
 
     </Tab.Navigator>
   );
@@ -148,24 +152,24 @@ export default function App() {
     <NavigationContainer>
       <ApiProvider>
 
-  
-      <stack.Navigator>
-        <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }}/>
-        <stack.Screen name='Home' component={Home} options={{ headerShown: false }}/>
-        <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
-        <stack.Screen name='ScreenCard' component={ScreenCards} options={{ headerShown: false }} />
-        <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
-        <stack.Screen name='ScreenExtract' component={ScreenExtract} options={{ headerShown: false }} />
-        <stack.Screen name='ScreenBox' component={ScreenBox} options={{ headerShown: false }} />
-        <stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-        <stack.Screen name='ScreenRecharge' component={ScreenRecharge} options={{ headerShown: false }} />
-        <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
-        <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }} />
-        <stack.Screen name='ScreenApproved' component={ScreenApproved} options={{ headerShown: false }} />
-        <stack.Screen name='PhysicalOrJuridic' component={PhysicalOrJuridic} options={{ headerShown: false }} />
-        <stack.Screen name='Physical' component={Physical} options={{ headerShown: false }} />
-        <stack.Screen name='Juridic' component={Juridic} options={{ headerShown: false }} />
-      </stack.Navigator>
+
+        <stack.Navigator>
+          <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} />
+          <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+          <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
+          <stack.Screen name='ScreenCard' component={ScreenCards} options={{ headerShown: false }} />
+          <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
+          <stack.Screen name='ScreenExtract' component={ScreenExtract} options={{ headerShown: false }} />
+          <stack.Screen name='ScreenBox' component={ScreenBox} options={{ headerShown: false }} />
+          <stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
+          <stack.Screen name='ScreenRecharge' component={ScreenRecharge} options={{ headerShown: false }} />
+          <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
+          <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }} />
+          <stack.Screen name='ScreenApproved' component={ScreenApproved} options={{ headerShown: false }} />
+          <stack.Screen name='PhysicalOrJuridic' component={PhysicalOrJuridic} options={{ headerShown: false }} />
+          <stack.Screen name='Physical' component={Physical} options={{ headerShown: false }} />
+          <stack.Screen name='Juridic' component={Juridic} options={{ headerShown: false }} />
+        </stack.Navigator>
       </ApiProvider>
     </NavigationContainer>
   );

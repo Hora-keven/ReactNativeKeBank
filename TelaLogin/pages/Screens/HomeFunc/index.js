@@ -18,8 +18,8 @@ export default function FirstScreen({ navigation }) {
     const [valor, setValor] = useState("R$ -------")
     const [olho, setOlho] = useState("eye-outline")
     const [open, setOpen] = useState(false)
-    const [imageG, setImageG] = useState('https://i.pinimg.com/736x/49/8e/ca/498eca19e49ea51a85a6f6c2e9597987.jpg')
-    const [imageJ, setImageJ] = useState('https://i.pinimg.com/736x/0d/4a/6c/0d4a6c0d1d6411a7c5a30837d074a1e6.jpg')
+    const [imageG, setImageG] = useState('')
+    const [imageJ, setImageJ] = useState('')
     const{user, userAccount} = useContext(ApiContext)
     const funcaoApp = [
         {
@@ -62,11 +62,11 @@ export default function FirstScreen({ navigation }) {
 
     const Funcoes = ({ title, img }) => (
         <View style={styles.function}>
-            <Text style={styles.text}>{title}</Text>
-            <View style={styles.containerImgF}>
-                <Image source={img} style={styles.imgf} />
+          
+            <View style={[styles.containerImgF]}>
+                <Image source={img}  />
             </View>
-
+            <Text style={styles.text}>{title}</Text>
         </View>
 
     )

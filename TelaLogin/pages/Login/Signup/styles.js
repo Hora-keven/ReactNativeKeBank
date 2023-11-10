@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
-        top:90
+        top:140
     },
     txtInformation:{
         color:'white',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         marginTop:12,
         width:'70%',
         borderColor:'white',
-        top:100
+        top:150
 
 
     },
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         height:'40%',
         transform:'rotate(15.5deg)',
         position:'relative',
-        top:219,
+        top:110,
         right:60,
         zIndex:10,
         

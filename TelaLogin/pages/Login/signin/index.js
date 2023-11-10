@@ -6,18 +6,18 @@ import api from "../../Api/Api";
 import { useContext, useState } from "react";
 import * as Animatable from 'react-native-animatable';
 import { ApiContext } from "../../context/APicontext";
-
+import { TextInputMask } from 'react-native-masked-text'
 
 export default function LoginUser({ navigation }) {
 
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
     const {tokenUser, userLog, informationsAccountUser} = useContext(ApiContext)
-
+   
     async function logar (){
         try{
             api.post('auth/token/login/',{
-                username:user,
+                username:noMask,
                 password:password
     
           }).then(function(response){
@@ -31,7 +31,7 @@ export default function LoginUser({ navigation }) {
                   
                 })
                 try {
-                    api.get("account/"+user).then(function(response){
+                    api.get("account/"+noMask).then(function(response){
                         console.log(response.data[0].id)
                         informationsAccountUser(
                             response.data[0].id,
@@ -62,6 +62,7 @@ export default function LoginUser({ navigation }) {
         }
       
     }
+    const noMask = user.replace(/\.|-/gm, "")
     return (
         <View style={styles.container}>
 
@@ -73,8 +74,16 @@ export default function LoginUser({ navigation }) {
             </View>
 
             <View style={styles.inputs}>
-                <TextInput value={user} onChangeText={(text)=>setUser(text)} style={styles.input} placeholderTextColor={'white'} placeholder="Digite seu CPF: " />
-                <TextInput value={password}  onChangeText={(text)=>setPassword(text)}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
+            <TextInputMask
+                        type='cpf'
+                        style={styles.input}
+                        value={user}
+                        placeholder='Digite seu CPF:'
+                        placeholderTextColor={'white'}
+                     
+                        onChangeText={text => { setUser(text) }} />
+           
+                <TextInput value={password} secureTextEntry={true} onChangeText={(text)=>setPassword(text)}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
             </View>
 
             <View>
