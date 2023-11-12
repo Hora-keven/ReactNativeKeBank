@@ -15,31 +15,8 @@ export default function ScreenPix({ navigation }) {
     const[value,setValue]=useState("")
     const {userAccount} = useContext(ApiContext)
 
-    const ContatosCadastrados = [
-        {
-            id: 1,
-            nome: 'Keven',
-        },
-        {
-            id: 2,
-            nome: 'Maria',
-        },
-        {
-            id: 3,
-            nome: 'Marla',
-        },
-        {
-            id: 4,
-            nome: 'Antonio',
-        },
-        {
-            id: 5,
-            nome: 'José',
-        },
-
-    ]
     const noMaskPix = keyPix.replace(/\.|-/gm, "")
-    const maskValue = value.replace("R$", "")
+    const maskValue = value.replace("R$", "").replace(/\./g, '');
     
     const sendPix =() =>{
         try {
@@ -122,7 +99,7 @@ export default function ScreenPix({ navigation }) {
                                 options={{
                                     
                                     precision: 2,
-                                    separator: '.',
+                                    separator: ',',
                                     delimiter: '.',
                                     unit: 'R$',
                                     suffixUnit: ''

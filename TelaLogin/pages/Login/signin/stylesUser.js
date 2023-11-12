@@ -65,11 +65,10 @@ const styles = StyleSheet.create({
     
     },
     Arrowbutton:{
-        color:'white',
-        fontFamily:'inter',
-        fontSize:22,
         top:170,
-        left:120
+        left:120,
+        display:"flex",
+        alignItems:"center"
     },
     polign:{
         backgroundColor:'white',

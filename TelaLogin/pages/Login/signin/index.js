@@ -88,8 +88,8 @@ export default function LoginUser({ navigation }) {
             </View>
 
             <View>
-                <TouchableOpacity onPress={logar} style={styles.button}>
-                    <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward" />
+                <TouchableOpacity onPress={logar} style={styles.Arrowbutton}>
+                    <Ionicons size={50} color="white" name="ios-arrow-forward" />
                 </TouchableOpacity>
             </View>
 
