@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
        borderBottomColor:'white',
        marginTop:20,
        width:'100%',
-       backgroundColor:'#155e85'
+       backgroundColor:'#155e85',
+       color:"white"
     
     },
     Arrowbutton:{

@@ -1,4 +1,3 @@
-
 import {  Text, TouchableOpacity, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import styles from './styles'

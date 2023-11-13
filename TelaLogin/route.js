@@ -16,7 +16,7 @@ import Home from './pages/Home'
 import PhysicalOrJuridic from './pages/Home/phyperOrJuriPer'
 import Physical from './pages/Login/Signup/Physical';
 import LoginUser from './pages/Login/signin'
-import Login from './pages/Login/Signup'
+
 import FirstScreen from './pages/Screens/HomeFunc/index.js'
 import ScreenPix from './pages/Screens/Pix'
 import ScreenExtract from './pages/Screens/Extract'
@@ -161,7 +161,6 @@ export default function App() {
           <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
           <stack.Screen name='ScreenExtract' component={ScreenExtract} options={{ headerShown: false }} />
           <stack.Screen name='ScreenBox' component={ScreenBox} options={{ headerShown: false }} />
-          <stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
           <stack.Screen name='ScreenRecharge' component={ScreenRecharge} options={{ headerShown: false }} />
           <stack.Screen name='ScreenPix' component={ScreenPix} options={{ headerShown: false }} />
           <stack.Screen name='Login_User' component={LoginUser} options={{ headerShown: false }} />

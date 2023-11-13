@@ -16,15 +16,15 @@ export default function Physical({ navigation }) {
     const [cpf, setCpf] = useState("")
     const [rg, setRg] = useState("")
     const [city, setCity] = useState("")
-    const [neighborhood, setNeghborhood] = useState("")
+    const [neighborhood, setNeighborhood] = useState("")
     const [federative_unit, setFederative_unit] = useState("")
     const [pac, setPac] = useState("")
     const [public_place, setPublic_space] = useState("")
-    const [nome, setNome] = useState("")
-    const [numero, setNumero] = useState("")
-    const [sobrenome, setSobrenome] = useState("")
+    const [name, setName] = useState("")
+    const [number, setNumber] = useState("")
+    const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
-    const [senha, setSenha] = useState("")
+    const [password, setPassword] = useState("")
     const [street, setStreet] = useState("")
   
    
@@ -81,19 +81,19 @@ export default function Physical({ navigation }) {
 
             api.post('users/',{
                 username:cpf,
-                first_name:nome,
-                surname:sobrenome,
+                first_name:name,
+                surname:lastName,
                 email:email,
-                password:senha,
-                phone_number:numero
+                password:password,
+                phone_number:number
 
             }).then(function (response) {
-            userLog(response.data.id, nome, email, sobrenome)
+            userLog(response.data.id, name, email, lastName)
           
             try{
                 api.post('auth/token/login/',{
                     username:cpf,
-                    password:senha
+                    password:password
         
               }).then(function(response){
                 tokenUser(response.data.auth_token)
@@ -118,12 +118,12 @@ export default function Physical({ navigation }) {
         }
 
 
-        const searchPac = ()=>{
+        const searchPac = () =>{
 
             apiCep.get(`${pac}/json`).then(function(response){
                 setCity(response.data.localidade)
                 setFederative_unit(response.data.uf)
-                setNeghborhood(response.data.bairro)
+                setNeighborhood(response.data.bairro)
                 setStreet(response.data.logradouro)
                 createUser()
 
@@ -144,11 +144,11 @@ export default function Physical({ navigation }) {
             </View>
 
             <View style={styles.inputs}>
-                <TextInput style={styles.input} value={nome} onChangeText={setNome} placeholder="Nome:" placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={sobrenome} onChangeText={setSobrenome} placeholder="Sobrenome:" placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholder="Digite seu E-mail: " placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={numero} onChangeText={(text)=>setNumero(text)} placeholder="Digite seu numero de telefone: " placeholderTextColor={'white'} />
-                <TextInput style={styles.input} value={senha} onChangeText={(text)=>setSenha(text)} placeholder="Crie a sua senha: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={name} onChangeText={(text)=>setName(text)} placeholder="Put your first name:" placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={lastName} onChangeText={setLastName} placeholder="Put your last name:" placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholder="Put your E-mail: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={number} onChangeText={(text)=>setNumber(text)} placeholder="Put your telephone number: " placeholderTextColor={'white'} />
+                <TextInput style={styles.input} value={password} onChangeText={(text)=>setPassword(text)} placeholder="Create your password: " placeholderTextColor={'white'} />
                 <TextInput style={styles.input} value={bornDate} onChangeText={(text) =>setBornDate(text)} placeholder="Put your born date: " placeholderTextColor={'white'} />
                 <TextInput style={styles.input} value={cpf} onChangeText={(text)=>setCpf(text)} inputMode="numeric" placeholder="Put your CPF: " placeholderTextColor={'white'} />
                 <TextInput style={styles.input} value={rg} onChangeText={(text)=>setRg(text)} placeholder="Put your Rg: " placeholderTextColor={'white'} />
