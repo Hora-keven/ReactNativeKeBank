@@ -11,7 +11,7 @@ import DropdownChoice from "../../../components/dropdown.jsx";
 import apiCep from "../../Api/ApiCep";
 
 export default function Physical({ navigation }) {
-    const {user, userLog, tokenUser, token, optionAccount} = useContext(ApiContext)
+    const {user, userLog, tokenUser, token, optionAccount, cardUserLog} = useContext(ApiContext)
     const [bornDate, setBornDate] = useState("")
     const [cpf, setCpf] = useState("")
     const [rg, setRg] = useState("")
@@ -26,7 +26,7 @@ export default function Physical({ navigation }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [street, setStreet] = useState("")
-  
+    const noMask = cpf.replace(/\.|-/gm, "")
    
     const createAccount = async () =>{
      
@@ -36,7 +36,7 @@ export default function Physical({ navigation }) {
             api.post('physicalperson/',{
                 physical_person:user.id,
                 born_date:bornDate,
-                cpf:cpf,
+                cpf:noMask,
                 rg:rg,
             
 
@@ -50,15 +50,45 @@ export default function Physical({ navigation }) {
                     pac:pac,
                     street:street,
                     public_place:public_place,
-                    physical_person:response.data.cpf
+                    physical_person:noMask
                 })
             }catch(error){
                 console.error(error);
             }
+
             try {
                 api.post('account/',{
                     type_account:optionAccount,
-                    physical_person:response.data.cpf
+                    physical_person:noMask
+
+                }).then(function(response){
+
+                    try {
+                        api.get("account/?physical_person="+noMask).then(function(response){
+                            console.log(response.data[0].id)
+                            informationsAccountUser(
+                                response.data[0].id,
+                                response.data[0].agency,
+                                response.data[0].number,
+                                response.data[0].number_verificate,
+                                response.data[0].limit
+                            
+                            )
+                            
+                            api.post("card/",{
+                                account:response.data[0].id
+                            }).then(function(response){
+                                console.log(response.data)
+                                cardUserLog(response.data.number, response.data.validity)
+                            })
+                            navigation.navigate("First")
+                        }).catch(function(error){
+                            console.error(error)
+                        })
+                          
+                    } catch (error) {
+                        console.error(error)
+                    }
                 })
             } catch (error) {
                 console.error(error)

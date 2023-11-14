@@ -31,121 +31,7 @@ import Juridic from './pages/Login/Signup/Juridic';
 
 
 const stack = createStackNavigator()
-const Tab = createBottomTabNavigator();
 
-function TabScreen() {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: '#155e85',
-          paddingBottom: 1,
-          paddingTop: 1,
-          borderTopColor: 'transparent'
-        },
-        tabBarActiveTintColor: 'black',
-        tabBarInactiveTintColor: 'white'
-      }}>
-
-
-      <Tab.Screen
-        name="Home"
-        component={Home}
-
-        options={{
-          tabBarStyle: { display: 'none' },
-          tabBarIcon: () => (
-            <Feather name="login" size={22} />
-          )
-        }} />
-
-      <Tab.Screen
-        name="First"
-        component={FirstScreen}
-
-        options={{
-          tabBarStyle: { display: 'none' },
-          tabBarIcon: ({ size, color }) => (
-            
-            <Feather name="home" size={22} color={color} />
-            
-          )
-        }} />
-
-
-
-      <Tab.Screen
-        name="ScreenPix"
-        component={ScreenPix}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return (
-              <Image source={pix} />
-            )
-          }
-        }} />
-
-      <Tab.Screen
-        name="ScreenBox"
-        component={ScreenBox}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return (
-              <Image source={locke} size={10} />
-            )
-          }
-        }} />
-
-      <Tab.Screen
-        name="ScreenExtract"
-        component={ScreenExtract}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return (
-              <Image source={extrato} />
-            )
-          }
-        }} />
-
-      <Tab.Screen
-        name="ScreenCard"
-        component={ScreenCards}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return (
-              <Image source={card} />
-            )
-          }
-        }} />
-
-      <Tab.Screen
-        name="Loan"
-        component={ScreenLoan}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return (
-              <Image source={emprestimo} />
-            )
-          }
-        }} />
-
-      <Tab.Screen
-        name="ScreenRecharge"
-        component={ScreenRecharge}
-        options={{
-
-          tabBarIcon: ({ size, color }) => {
-            return (
-              <Image source={phone} />
-            )
-          }
-
-        }} />
-
-    </Tab.Navigator>
-  );
-}
 
 export default function App() {
   return (
@@ -154,7 +40,7 @@ export default function App() {
 
 
         <stack.Navigator>
-          <stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} />
+         
           <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
           <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
           <stack.Screen name='ScreenCard' component={ScreenCards} options={{ headerShown: false }} />

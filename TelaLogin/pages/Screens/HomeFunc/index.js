@@ -166,7 +166,7 @@ export default function FirstScreen({ navigation }) {
                                 style={styles.img} />
                         </TouchableOpacity>
                     </View>
-                    <Text style={styles.txtUser}>Olá {user.name}!</Text>
+                    <Text style={styles.txtUser}>Olá {user.nameOrCompanyName}!</Text>
                 </View>
                 <View style={styles.rectangle}>
                     <Text style={styles.txtInformation}>Conta</Text>

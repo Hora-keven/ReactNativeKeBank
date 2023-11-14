@@ -7,10 +7,11 @@ import { useContext, useState } from "react";
 import * as Animatable from 'react-native-animatable';
 import { ApiContext } from "../../context/APicontext";
 import { TextInputMask } from 'react-native-masked-text'
+import Juridic from "../Signup/Juridic";
 
 export default function LoginUser({ navigation }) {
 
-    const [user, setUser] = useState('')
+    const [cpfCnpj, setCpfCnpj] = useState('')
     const [password, setPassword] = useState('')
     const {tokenUser, userLog, informationsAccountUser} = useContext(ApiContext)
    
@@ -32,8 +33,9 @@ export default function LoginUser({ navigation }) {
                   
                 })
                 try {
-                    api.get("account/"+noMask).then(function(response){
+                    api.get(`account/?${cpfCnpj.length == 11? 'physical_person': 'juridic_person'}`).then(function(response){
                         console.log(response.data[0].id)
+                        
                         informationsAccountUser(
                             response.data[0].id,
                             response.data[0].agency,
@@ -63,7 +65,7 @@ export default function LoginUser({ navigation }) {
         }
       
     }
-    const noMask = user.replace(/\.|-/gm, "")
+    const noMask = cpfCnpj.replace(/\.|-/gm, "")
     return (
         <View style={styles.container}>
 
@@ -76,13 +78,14 @@ export default function LoginUser({ navigation }) {
 
             <View style={styles.inputs}>
             <TextInputMask
-                        type='cpf'
+                        type={"only-numbers"}
                         style={styles.input}
-                        value={user}
-                        placeholder='Digite seu CPF:'
+                        maxLength={14}
+                        value={cpfCnpj}
+                        placeholder='Digite seu CPF/CNPJ:'
                         placeholderTextColor={'white'}
-                     
-                        onChangeText={text => { setUser(text) }} />
+
+                        onChangeText={text => { setCpfCnpj(text) }} />
            
                 <TextInput value={password} secureTextEntry={true} onChangeText={(text)=>setPassword(text)}  style={styles.input} placeholderTextColor={'white'} placeholder="Digite sua senha: " />
             </View>

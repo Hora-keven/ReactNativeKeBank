@@ -1,5 +1,6 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
+import Card from '../../../components/card.jsx';
 import card from '../../../assets/cartao.png'
 import cartaoKebank from '../../../assets/cartaoKebank.png'
 import cartaoKebankVerso from '../../../assets/cartaoKebankVerso.png'
@@ -10,7 +11,7 @@ export default function ScreenCards({ navigation }) {
 
     const[nomeCartao, setNomeCartao] = useState(cartaoKebank)
     const[animatable, setAnimatable]=useState('')
-    const[reverse, setReverse]=useState('')
+
   
     return (
         <ScrollView>
@@ -26,6 +27,7 @@ export default function ScreenCards({ navigation }) {
                     <Text style={styles.textTitle}> Cartão Virtual</Text>
                     <View style={styles.function}>
                         <Text style={styles.textT}>KEVEN H SANTOS</Text>
+
                         <View style={styles.containerImgF}>
                             <Image source={card} style={styles.imgf} />
                         </View>
@@ -36,21 +38,12 @@ export default function ScreenCards({ navigation }) {
 
                 </View>
                 <View style={styles.slides}>
-                    <TouchableOpacity style={{backgroundColor:'white',height:100, justifyContent:'center'}} onPress={()=>{
+                    <TouchableOpacity style={{backgroundColor:'white',height:100, width:"100%", justifyContent:'center'}}>
                     
-                        if(nomeCartao == cartaoKebank){
-                            setAnimatable("flipInX")
-                            setNomeCartao(cartaoKebankVerso)    
-                        }
-                      else if (nomeCartao == cartaoKebankVerso){
-                        setAnimatable("flipInY")
-                        setNomeCartao(cartaoKebank)
-                   
-                    }  
-                    }}>
-                    <Animatable.Image animation={animatable} delay={2000} source={nomeCartao}
-                        />
+                     
+                        <Card/>
                     </TouchableOpacity>
+                 
                 </View>
 
                 <View style={styles.nameSlogan}>

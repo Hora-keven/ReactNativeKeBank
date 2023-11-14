@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:300,
+        top:320,
      
     
     },
@@ -57,16 +57,18 @@ const styles = StyleSheet.create({
     
     },
     button:{
-        fontSize:20,
-        color:"white",
-        left:199,
-        top:70
-    },  
+        position:"relative",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        width:60,
+        left:179,
+        top:25
+    },
+
     img:{
         width:50,
-        height:50,
-
-       
+        height:50,  
     },
    
     rectangle:{

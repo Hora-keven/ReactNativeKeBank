@@ -13,7 +13,7 @@ const headers = {
 
  const api = axios.create({
   
-    baseURL:"http://192.168.56.1:8080/api/version1/",
+    baseURL:"http://10.109.71.20:8080/api/version1/",
     headers:headers
 })
 

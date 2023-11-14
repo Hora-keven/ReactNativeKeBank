@@ -12,7 +12,7 @@ import api from "../../Api/Api.jsx";
 
 
 export default function Juridic({ navigation }) {
-    const { token, userJuridicPerson, tokenUser, userJuridic, optionAccount} = useContext(ApiContext)
+    const { token, userLog, tokenUser, user, optionAccount, informationsAccountUser} = useContext(ApiContext)
     const [openDate, setOpenDate] = useState("")
     const [cnpj, setCnpj] = useState("")
     const [stateRegistration, setStateRegistration] = useState("")
@@ -35,13 +35,13 @@ export default function Juridic({ navigation }) {
             api.post('users/',{
                 username:noMask,
                 first_name:name,
-                surname:"teste",
+                surname:null,
                 email:email,
                 password:password,
                 phone_number:number
 
             }).then(function (response) {
-            userJuridicPerson(response.data.id, name, cnpj)
+            userLog(response.data.id, name, email, cnpj)
           
             try{
                 api.post('auth/token/login/',{
@@ -51,7 +51,6 @@ export default function Juridic({ navigation }) {
               }).then(function(response){
                 tokenUser(response.data.auth_token)
               
-
               }).catch(function (error) {
                 console.error(error);
               });
@@ -75,7 +74,7 @@ export default function Juridic({ navigation }) {
             try{
                 api.defaults.headers.Authorization = `Token ${token}`
                 api.post('juridicperson/',{
-                    juridic_person:userJuridic.id,
+                    juridic_person:user.id,
                     state_registration:stateRegistration,
                     cnpj:noMask,
                     open_date:openDate,
@@ -84,34 +83,55 @@ export default function Juridic({ navigation }) {
                 }).then(function (response) {
                     console.log(response.data)
                     try {
-                        api.post("account", {
+                        api.post("account/", {
                             type_account:optionAccount,
-                            juridic_person:cnpj
-                        })
-                    } catch (error) {
-                        
-                    }
-                  
-                    try{
-                        api.post("address/",{
-                            city:city,
-                            neighborhood:neighborhood,
-                            federative_unit:federative_unit,
-                            pac:pac,
-                            street:street,
-                            public_place:public_place,
-                            juridic_person:response.data.cpf
+                            juridic_person:noMask,
+                            physical_person:null
 
                         }).then(function(response){
-                            console.log(response.data)
-                            navigation.navigate('First')
-
-                         
+                            try{
+                                api.post("address/",{
+                                    city:city,
+                                    neighborhood:neighborhood,
+                                    federative_unit:federative_unit,
+                                    pac:pac,
+                                    street:street,
+                                    public_place:public_place,
+                                    juridic_person:noMask
+        
+                                }).then(function(response){
+                                    console.log(response.data)
+                                    navigation.navigate('First')
+                   
+                                })
+                                try {
+                                    api.get("account/?juridic_person="+noMask).then(function(response){
+                                        console.log(response.data[0].id)
+                                        informationsAccountUser(
+                                            response.data[0].id,
+                                            response.data[0].agency,
+                                            response.data[0].number,
+                                            response.data[0].number_verificate,
+                                            response.data[0].limit
+                                        
+                                        )
+                                        navigation.navigate("First")
+                                    }).catch(function(error){
+                                        console.error(error)
+                                    })
+                                      
+                                } catch (error) {
+                                    console.error(error)
+                                }
+        
+                            }catch(error){
+                                console.error(error);
+                            }
                         })
-
-                    }catch(error){
-                        console.error(error);
-                    }
+                    } catch (error) {
+                        console.error(error)
+                    }  
+                   
               })
               .catch(function (error) {
                 console.error(error);
