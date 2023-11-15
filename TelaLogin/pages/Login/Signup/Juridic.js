@@ -74,7 +74,7 @@ export default function Juridic({ navigation }) {
             try{
                 api.defaults.headers.Authorization = `Token ${token}`
                 api.post('juridicperson/',{
-                    juridic_person:user.id,
+                    fk_user:user.id,
                     state_registration:stateRegistration,
                     cnpj:noMask,
                     open_date:openDate,

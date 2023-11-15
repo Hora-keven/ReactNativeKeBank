@@ -33,8 +33,8 @@ export default function LoginUser({ navigation }) {
                   
                 })
                 try {
-                    api.get(`account/?${cpfCnpj.length == 11? 'physical_person': 'juridic_person'}`).then(function(response){
-                        console.log(response.data[0].id)
+                    api.get(`account/?${cpfCnpj.length == 11? 'physical_person=': 'juridic_person='+cpfCnpj}`).then(function(response){
+                        console.log(response.data[0])
                         
                         informationsAccountUser(
                             response.data[0].id,

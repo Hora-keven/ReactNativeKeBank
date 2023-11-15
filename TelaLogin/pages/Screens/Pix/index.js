@@ -19,9 +19,10 @@ export default function ScreenPix({ navigation }) {
     
     const sendPix =() =>{
         try {
-            api.get(`account/?physical_person=${noMaskPix}`).then(function(response){
+            api.get(`account/?${noMaskPix.length == 11?'physical_person=':"juridic_person="+noMaskPix}`).then(function(response){
                 console.log(response.data[0])
                 console.log(noMaskPix)
+
                 api.post("pix/", {
 
                     from_account:userAccount.id,
@@ -74,7 +75,8 @@ export default function ScreenPix({ navigation }) {
                 <View style={styles.inputs}>
                  
                     <TextInputMask
-                        type='cpf'
+                        type='only-numbers'
+                        maxLength={14}
                         style={[styles.input, , {borderBottomColor:"black", borderBottomWidth:1, color:"black"}]}
                         value={keyPix}
                         placeholder='Digite a chave do pix:'

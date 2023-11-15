@@ -34,7 +34,7 @@ export default function Physical({ navigation }) {
         try{
             api.defaults.headers.Authorization = `Token ${token}`
             api.post('physicalperson/',{
-                physical_person:user.id,
+                fk_user:user.id,
                 born_date:bornDate,
                 cpf:noMask,
                 rg:rg,
