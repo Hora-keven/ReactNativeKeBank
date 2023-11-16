@@ -46,7 +46,6 @@ export default function ScreenPix({ navigation }) {
             console.error(error)  
         }
     
-        
     }
 
     

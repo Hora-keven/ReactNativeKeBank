@@ -5,13 +5,6 @@ import { Feather } from '@expo/vector-icons';
 import { Image } from 'react-native';
 
 
-import pix from './assets/pixWhite.png'
-import phone from './assets/phoneWHITE.png'
-import extrato from './assets/extratoWhite.png'
-import locke from './assets/lockeWhite.png'
-import card from './assets/cartaoWhite.png'
-import emprestimo from './assets/emprestimoWhite.png'
-
 import Home from './pages/Home'
 import PhysicalOrJuridic from './pages/Home/phyperOrJuriPer'
 import Physical from './pages/Login/Signup/Physical';
@@ -40,11 +33,11 @@ export default function App() {
 
 
         <stack.Navigator>
-         
+        <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
           <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
           <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
           <stack.Screen name='ScreenCard' component={ScreenCards} options={{ headerShown: false }} />
-          <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
+      
           <stack.Screen name='ScreenExtract' component={ScreenExtract} options={{ headerShown: false }} />
           <stack.Screen name='ScreenBox' component={ScreenBox} options={{ headerShown: false }} />
           <stack.Screen name='ScreenRecharge' component={ScreenRecharge} options={{ headerShown: false }} />

@@ -199,7 +199,7 @@ export default function Juridic({ navigation }) {
             </View>
 
             <View style={{top:100, position:"relative"}}>
-               <DropdownChoice   />
+               <DropdownChoice />
             </View>
 
             <View style={[styles.polign, {top:150}]}></View>

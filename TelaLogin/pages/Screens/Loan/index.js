@@ -1,40 +1,69 @@
-import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
 import styles from './styles';
 import { FlatList } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native';
-import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+
+import React, { useRef, useState } from 'react';
+import {  Feather, Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
+import { Modalize } from 'react-native-modalize';
+import { TextInputMask } from 'react-native-masked-text'
+import DropdowmFees from "./../../../components/dropdownfees"
 
 export default function ScreenLoan({navigation}) {
     
-
+    const[value,setValue]=useState("")
+    const maskValue = value.replace("R$", "").replace(/\./g, '').replace("0", "").replace(/\,/g, "").replace("0", "");
     const Transferencia = [
         {
             id: 1,
-            nome: 'Contratar',
+            nome: 'Contas de casa',
         },
         {
             id: 2,
-            nome: 'Portabilidade de crédito',
+            nome: 'Reformas ou consertos',
+
         },
         {
             id: 3,
-            nome: 'Antecipar 13º salário', 
+            nome: 'Investir no meu negócio', 
+    
         },
         {
             id: 4,
-            nome: 'Parcelar cheque/cartão',  
+            nome: 'Viagem',  
+          
+
         },
         {
             id: 5,
-            nome: 'Transferir Limites de crédito',
+            nome: 'Divida',
+          
         },
     ];
-    const Historico = ({ title, valor }) => (
+    const Historico = ({ title }) => (
         <View style={styles.function}>
             <Text style={styles.txt}>{title}</Text>
+        
         </View>
+        
     );
+
+    const modalizeRef = useRef(<Modalize />);
+
+    const abrirModal = () => {
+        
+        modalizeRef.current?.open();
+        message()
+    };
+
+
+    const message = ()=>{
+        Alert.alert('Sobre o empréstimo',`O empréstimo possui um juros de:\n\n20% se parcelar em 12x\n40% se parcelar em 24x\n60% se parcelar em 36x \n\n`, [
+            {text: 'OK', onPress: ()=>abrirModal, style:"destructive"},
+          ]);
+    }
+    const sendLoan = ()=>{}
+
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -58,8 +87,8 @@ export default function ScreenLoan({navigation}) {
                             return (
                                 <ScrollView>
                                     <View style={styles.containerTrans}>
-                                        <TouchableOpacity>
-                                            <Historico title={item.nome} valor={item.valor} />
+                                        <TouchableOpacity onPress={message}>
+                                            <Historico title={item.nome}  />
                                         </TouchableOpacity>
                                    
                                     </View>
@@ -74,6 +103,35 @@ export default function ScreenLoan({navigation}) {
                         <Text style={styles.secondPartName}>Bank</Text>
                     </View>
                 </View>
+                <Modalize ref={modalizeRef} modalHeight={500} modalStyle={styles.modal}>
+                    <View style={styles.confirm}>
+
+
+                    <TextInputMask 
+                            style={[styles.input, { borderBottomColor: 'white', borderBottomWidth: 2 }]}
+                                type={'money'}
+                                options={{
+                                    
+                                    precision: 2,
+                                    separator: ',',
+                                    delimiter: '.',
+                                    unit: 'R$',
+                                    suffixUnit: ''
+                                }}
+                                value={value}
+                                placeholder={'R$'}
+                                placeholderTextColor={'white'}
+                                onChangeText={text => {
+                                   setValue(text)
+                                }}/>
+
+                                <DropdowmFees/>
+                        
+                        <TouchableOpacity  style={styles.button} onPress={sendLoan }>
+                           <Ionicons size={30} color={"white"} name="ios-arrow-forward" />
+                        </TouchableOpacity>
+                    </View>
+                </Modalize>
             </View>
         </ScrollView>
     );

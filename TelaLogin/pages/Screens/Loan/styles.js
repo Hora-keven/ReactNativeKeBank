@@ -14,13 +14,36 @@ const styles = StyleSheet.create({
     },
 
     txt:{
-        fontFamily:'Dela gothic alone',
+      
         left:4,
         fontSize:20,
         color:'black',
        
  
+    },    
+    button:{
+        position:"relative",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        width:60,
+        left:179,
+        top:25
     },
+ 
+    confirm:{
+        marginTop:50,
+        height:200,
+        width:220,
+    
+    },
+    modal:{
+        backgroundColor:'#155e85',
+        alignItems:'center',
+        display:'flex',
+        justifyContent:'center'
+    },
+
     firstName:{
         fontFamily:'Dela gothic alone',
         fontWeight:700,
@@ -57,6 +80,7 @@ const styles = StyleSheet.create({
        borderBottomWidth:1,
        borderBottomColor:'black',
        width:'100%',
+       color:"white"
     
     },
    
