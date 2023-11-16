@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
 import styles from './styles';
 import { FlatList } from 'react-native-gesture-handler';
-
+import api from "./../../Api/Api"
 import React, { useRef, useState } from 'react';
 import {  Feather, Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
@@ -50,19 +50,30 @@ export default function ScreenLoan({navigation}) {
 
     const modalizeRef = useRef(<Modalize />);
 
-    const abrirModal = () => {
+    const openModal = () => {
         
         modalizeRef.current?.open();
-        message()
+       
     };
 
 
     const message = ()=>{
         Alert.alert('Sobre o empréstimo',`O empréstimo possui um juros de:\n\n20% se parcelar em 12x\n40% se parcelar em 24x\n60% se parcelar em 36x \n\n`, [
-            {text: 'OK', onPress: ()=>abrirModal, style:"destructive"},
+            {text: 'OK', onPress: ()=>console.log("teste"), style:"cancel"},
           ]);
     }
-    const sendLoan = ()=>{}
+    const sendLoan = ()=>{
+        try {
+            api.post("loan/", {
+                
+            }).then(function(response){
+    
+            })
+        } catch (error) {
+           console.error(error) 
+        }
+       
+    }
 
     return (
         <ScrollView>
@@ -87,7 +98,7 @@ export default function ScreenLoan({navigation}) {
                             return (
                                 <ScrollView>
                                     <View style={styles.containerTrans}>
-                                        <TouchableOpacity onPress={message}>
+                                        <TouchableOpacity onPress={openModal}>
                                             <Historico title={item.nome}  />
                                         </TouchableOpacity>
                                    
@@ -127,7 +138,7 @@ export default function ScreenLoan({navigation}) {
 
                                 <DropdowmFees/>
                         
-                        <TouchableOpacity  style={styles.button} onPress={sendLoan }>
+                        <TouchableOpacity  style={styles.button} onPress={sendLoan}>
                            <Ionicons size={30} color={"white"} name="ios-arrow-forward" />
                         </TouchableOpacity>
                     </View>
