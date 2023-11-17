@@ -1,42 +1,44 @@
-import { View, Text, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
+import { View, Text, ScrollView, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from './styles';
 import { FlatList } from 'react-native-gesture-handler';
-import api from "./../../Api/Api"
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import {  Feather, Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 import { Modalize } from 'react-native-modalize';
 import { TextInputMask } from 'react-native-masked-text'
 import DropdowmFees from "./../../../components/dropdownfees"
+import DialogMessage from '../../../components/dialog';
+import { ApiContext } from '../../context/APicontext';
+import api from "./../../Api/Api"
 
 export default function ScreenLoan({navigation}) {
-    
+    const {loan, user} = useContext(ApiContext)
+
     const[value,setValue]=useState("")
     const maskValue = value.replace("R$", "").replace(/\./g, '').replace("0", "").replace(/\,/g, "").replace("0", "");
+    const [investment_type, setInvestment_type] = useState("")
     const Transferencia = [
         {
             id: 1,
-            nome: 'Contas de casa',
+            name: 'Contas de casa',
         },
         {
             id: 2,
-            nome: 'Reformas ou consertos',
+            name: 'Reformas ou consertos',
 
         },
         {
             id: 3,
-            nome: 'Investir no meu negócio', 
+           name: 'Investir no meu negócio', 
     
         },
         {
             id: 4,
-            nome: 'Viagem',  
-          
-
+            name: 'Viagem',  
         },
         {
             id: 5,
-            nome: 'Divida',
+            name: 'Divida',
           
         },
     ];
@@ -50,29 +52,32 @@ export default function ScreenLoan({navigation}) {
 
     const modalizeRef = useRef(<Modalize />);
 
-    const openModal = () => {
+    function openModal  () {
         
         modalizeRef.current?.open();
-       
+        console.log(investment_type)
+      
     };
 
 
-    const message = ()=>{
-        Alert.alert('Sobre o empréstimo',`O empréstimo possui um juros de:\n\n20% se parcelar em 12x\n40% se parcelar em 24x\n60% se parcelar em 36x \n\n`, [
-            {text: 'OK', onPress: ()=>console.log("teste"), style:"cancel"},
-          ]);
-    }
     const sendLoan = ()=>{
         try {
+            console.log(user.id)
             api.post("loan/", {
-                
-            }).then(function(response){
+
+                account:user.id,
+                requested_amount:parseFloat(maskValue),
+                installment_quantity:parseInt(loan),
+                installment_value:(parseFloat(maskValue)/parseFloat(loan)),
+               
     
+            }).then(function(response){
+                console.log(response.data)
             })
         } catch (error) {
-           console.error(error) 
+            console.error(error)
         }
-       
+        
     }
 
     return (
@@ -81,33 +86,31 @@ export default function ScreenLoan({navigation}) {
                 <View style={styles.rectangle}>
                     <Text style={styles.text}>Empréstimo</Text>
                 </View>
-                <View style={styles.inputs}>
-                    <TextInput style={styles.input}  placeholderTextColor={'black'} placeholder=" Do que você precisa? " />
-                </View>
+              
 
-                <View>
-                    <TouchableOpacity onPress={() => navigation.navigate('ScreenExtract', 'TabScreen')} style={styles.button}>
-                        <Feather name="search" size={24} color="black" style={styles.Arrowbutton} />
-                    </TouchableOpacity>
-                </View>
+              
                 <SafeAreaView style={styles.window}>
                     <FlatList
                         data={Transferencia}
                      
                         renderItem={({ item }) => {
+                         
                             return (
                                 <ScrollView>
                                     <View style={styles.containerTrans}>
-                                        <TouchableOpacity onPress={openModal}>
-                                            <Historico title={item.nome}  />
+                                        <TouchableOpacity onPress={()=>{
+                                            openModal()
+                                            setInvestment_type(item.name)
+                                            
+                                            } }>
+                                            <Historico title={item.name} />
                                         </TouchableOpacity>
-                                   
                                     </View>
                                 </ScrollView>
                             );
                         }} />
                 </SafeAreaView>
-              
+                <DialogMessage title={"Sobre o empréstimo"} description={"O empréstimo possui um juros de:\n\n20% se parcelar em 12x\n40% se parcelar em 24x\n60% se parcelar em 36x \n\n"} />
                 <View style={styles.nameSlogan}>
                     <View style={styles.title}>
                         <Animatable.Text animation='pulse' delay={5000} style={styles.firstName}>Ke</Animatable.Text>
@@ -138,7 +141,7 @@ export default function ScreenLoan({navigation}) {
 
                                 <DropdowmFees/>
                         
-                        <TouchableOpacity  style={styles.button} onPress={sendLoan}>
+                        <TouchableOpacity  style={styles.button} onPress={sendLoan }>
                            <Ionicons size={30} color={"white"} name="ios-arrow-forward" />
                         </TouchableOpacity>
                     </View>
