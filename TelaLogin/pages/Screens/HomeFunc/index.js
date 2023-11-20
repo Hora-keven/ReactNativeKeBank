@@ -1,26 +1,34 @@
 import { View, Image, Text, TouchableOpacity, SafeAreaView, FlatList } from "react-native"
 import styles from "./styles";
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import { Modalize } from 'react-native-modalize';
 import { ScrollView } from "react-native";
 import pix from './../../../assets/pix.png'
-import locke from './../../../assets/locke.png'
+
 import extrato from './../../../assets/extrato.png'
 import emprestimo from './../../../assets/emprestimo.png'
 import cartao from './../../../assets/cartao.png'
-import phone from './../../../assets/phone.png'
+import api from "../../Api/Api";
 import * as Animatable from 'react-native-animatable'
 import * as ImagePicker from 'expo-image-picker';
 import { ApiContext } from "../../context/APicontext";
 
 export default function FirstScreen({ navigation }) {
     const [valor, setValor] = useState("R$ -------")
-    const [olho, setOlho] = useState("eye-outline")
+    const [eye, setEye] = useState("eye-outline")
     const [open, setOpen] = useState(false)
     const [imageG, setImageG] = useState('')
     const [imageJ, setImageJ] = useState('')
-    const{user, userAccount} = useContext(ApiContext)
+    const [isGalleryOrCamera, setIsGaleryOrCamera] = useState(false)
+    const{user} = useContext(ApiContext)
+    const [limit, setLimit] = useState("")
+
+    useEffect(()=>{
+        api.get(`account/?${(user.cpfCnpj).length == 11? "physical_person="+user.cpfCnpj:"juridic_person="+user.cpfCnpj}`).then(function(response){
+            setLimit(response.data[0].limit)
+        })
+    },[])
     const funcaoApp = [
         {
             id: 1,
@@ -46,18 +54,7 @@ export default function FirstScreen({ navigation }) {
             name: 'ScreenCard',
             img: cartao
         },
-        {
-            id: 5,
-            title: "Caixinha",
-            name: 'ScreenBox',
-            img: locke
-        },
-        {
-            id: 6,
-            title: 'Recarga de celular',
-            name: 'ScreenRecharge',
-            img: phone
-        }
+       
     ]
 
     const Funcoes = ({ title, img }) => (
@@ -70,15 +67,15 @@ export default function FirstScreen({ navigation }) {
         </View>
 
     )
-    function Olho() {
+    function Eye() {
         setOpen(true)
         if (open) {
-            setValor(`R$ ${userAccount.limit}`)
-            setOlho("eye-off-outline")
+            setValor(`R$ ${limit}`)
+            setEye("eye-off-outline")
             setOpen(false)
         } else {
             setValor("R$ -------")
-            setOlho("eye-outline")
+            setEye("eye-outline")
         }
 
     }
@@ -114,6 +111,8 @@ export default function FirstScreen({ navigation }) {
         if (!(await result).canceled) {
             setImageG((await result).assets[0].uri)
         }
+
+        setIsGaleryOrCamera(true)
     }
 
     const camera = async () => {
@@ -129,6 +128,7 @@ export default function FirstScreen({ navigation }) {
         if (!(await result).canceled) {
             setImageJ((await result).assets[0].uri)
         }
+        
     }
 
     return (
@@ -162,17 +162,20 @@ export default function FirstScreen({ navigation }) {
                     <View style={styles.containerImg}>
                         <TouchableOpacity onPress={abrirModal}>
                             <Image
-                                source={{uri:(imageJ)}}
+                                source={{uri:(isGalleryOrCamera == true?imageG:imageJ)}}
                                 style={styles.img} />
                         </TouchableOpacity>
                     </View>
                     <Text style={styles.txtUser}>Olá {user.nameOrCompanyName}!</Text>
                 </View>
+                <View style={{backgroundColor:"black"}}>
+                    <Text>{user.name}</Text>
+                </View>
                 <View style={styles.rectangle}>
                     <Text style={styles.txtInformation}>Conta</Text>
                     <Text style={styles.txtInformation}>{valor}</Text>
-                    <TouchableOpacity onPress={Olho}>
-                        <Ionicons name={olho} size={24} style={{ left: 300, bottom: 33 }} color="white" />
+                    <TouchableOpacity onPress={Eye}>
+                        <Ionicons name={eye} size={34} style={{ left: 300, bottom: 33 }} color="white" />
                     </TouchableOpacity>
 
                 </View>
@@ -210,4 +213,4 @@ export default function FirstScreen({ navigation }) {
 
         </ScrollView>
     );
-}//a@b.com 123456
+}

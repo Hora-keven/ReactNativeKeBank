@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         width:'100%', 
         right:30,
-        top:320,
+        top:350,
      
     
     },
@@ -119,8 +119,7 @@ const styles = StyleSheet.create({
    
     
     Arrowbutton:{
-        color:'black',
-        fontFamily:'inter',
+   
         fontSize:32,
         left:155,
         top:10,

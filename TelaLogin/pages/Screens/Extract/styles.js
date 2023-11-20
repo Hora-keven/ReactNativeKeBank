@@ -9,12 +9,13 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      height:847,
-      marginTop:50
+      height:1050,
+     
+   
     },
 
     txt:{
-        fontFamily:'Dela gothic alone',
+
         left:34,
         fontSize:15,
         color:'black',
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
  
     },
     firstName:{
-        fontFamily:'Dela gothic alone',
+      
         fontWeight:700,
         fontSize:20,
         color:'black',
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
  
     },
     secondPartName:{
-        fontFamily:'inter',
+       
         color:'black',
         fontSize:20,
     },
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
-        bottom:200,
+        MarginTop:400,
         left:140
     },
   
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
         height:'7%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        marginTop:165,
+        marginTop:50,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -78,17 +79,16 @@ const styles = StyleSheet.create({
     },
   
     window:{
-        marginRight:3,
-        margin:0,
+      
         justifyContent:'center',
         alignItems:'center',
-        top:115,
-    
+        height:100,
+        width:350, 
       
     },
 
     text:{
-        fontFamily:'Raleway sans Serif',
+      
         fontSize:23,
         top:10,
         left:10,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   
     },
     textT:{
-        fontFamily:'Raleway sans Serif',
+     
         fontSize:20,
         top:4,
         left:30,
@@ -105,13 +105,12 @@ const styles = StyleSheet.create({
     },
 
     function:{
-        marginTop:10,
+        marginTop:5,
         backgroundColor:'white',
-        width:350,
-        height:80, 
-        marginLeft:3,
+        width:300,
+        height:70, 
+        margin:0,
         borderRadius:7,
-        padding:3,
         borderLeftWidth:2,
         
     },
@@ -134,8 +133,7 @@ const styles = StyleSheet.create({
          
     },
     Arrowbutton:{
-        color:'black',
-        fontFamily:'inter',
+ 
         fontSize:22,
         left:155,
         top:80,

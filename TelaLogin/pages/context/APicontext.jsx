@@ -8,7 +8,6 @@ function ApiProvider({children}){
     const [user, setUser] = useState({})
     const [optionAccount, setAccount] = useState()
     const [userAccount, setUserAccount]= useState({})
-    const [userJuridic, setUserJuridic] = useState({})
     const [cardUser, setCardUser] = useState({})
     const [loan, setLoan] = useState()
     function userLog(id, nameOrCompanyName, email, cpfCnpj){
@@ -22,15 +21,7 @@ function ApiProvider({children}){
         })
 
     }
-    const userJuridicPerson = (id, companyName, cnpj)=>{
-
-        setUserJuridic({
-            id:id,
-            companyName:companyName,
-            cnpj:cnpj
-        })
-
-    }
+   
     const informationsAccountUser = (id, agency, numberVerificate, number, limit )=>{
         setUserAccount({
             id:id,
@@ -58,7 +49,7 @@ function ApiProvider({children}){
         })
 }  
     return (
-    <ApiContext.Provider value={{token ,cardUser, cardUserLog, changeLoan, loan, tokenUser,userJuridicPerson, userJuridic, userAccount, user, informationsAccountUser, userLog, changeOptionAccount, optionAccount}}>{children}</ApiContext.Provider>
+    <ApiContext.Provider value={{token ,cardUser, cardUserLog, changeLoan, loan, tokenUser, userAccount, user, informationsAccountUser, userLog, changeOptionAccount, optionAccount}}>{children}</ApiContext.Provider>
     )
 }
 

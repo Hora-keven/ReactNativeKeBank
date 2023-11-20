@@ -1,8 +1,8 @@
-import { View, Text, ScrollView, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView,  TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from './styles';
 import { FlatList } from 'react-native-gesture-handler';
 import React, { useContext, useRef, useState } from 'react';
-import {  Feather, Ionicons } from '@expo/vector-icons';
+import {   Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 import { Modalize } from 'react-native-modalize';
 import { TextInputMask } from 'react-native-masked-text'
@@ -10,13 +10,16 @@ import DropdowmFees from "./../../../components/dropdownfees"
 import DialogMessage from '../../../components/dialog';
 import { ApiContext } from '../../context/APicontext';
 import api from "./../../Api/Api"
+import { Alert } from 'react-native';
 
 export default function ScreenLoan({navigation}) {
-    const {loan, user} = useContext(ApiContext)
+    const {loan, userAccount} = useContext(ApiContext)
 
     const[value,setValue]=useState("")
     const maskValue = value.replace("R$", "").replace(/\./g, '').replace("0", "").replace(/\,/g, "").replace("0", "");
     const [investment_type, setInvestment_type] = useState("")
+
+
     const Transferencia = [
         {
             id: 1,
@@ -62,20 +65,32 @@ export default function ScreenLoan({navigation}) {
 
     const sendLoan = ()=>{
         try {
-            console.log(user.id)
+          
             api.post("loan/", {
 
-                account:user.id,
+                account:userAccount.id,
                 requested_amount:parseFloat(maskValue),
-                installment_quantity:parseInt(loan),
-                installment_value:(parseFloat(maskValue)/parseFloat(loan)),
-               
+                installment_quantity:parseInt(loan),  
     
             }).then(function(response){
-                console.log(response.data)
+                if (response.status === 201) {
+                   
+                    Alert.alert("Empréstimo realizado com sucesso!!", "O valor pedido é maior que foi de: "+value)
+                  }
+        
+                console.log(response.status)
+
+            }).catch(function(error){
+                if( error.response.status === 400){
+                    Alert.alert('Empréstimo negado!', 'O valor pedido é maior que o saldo disponivel. Saldo: '+userAccount.limit);
+                }
+                console.error(error)
             })
         } catch (error) {
+          
             console.error(error)
+         
+            
         }
         
     }

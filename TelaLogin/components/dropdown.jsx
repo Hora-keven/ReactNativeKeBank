@@ -12,7 +12,7 @@ function DropdownChoice({quanti}){
     ]
     return(
     
-    <Dropdown data={options} placeholder="Tipo conta" placeholderStyle={{color:"white"}} value={optionAccount} style={{width:100, color:"white"}} onChange={item=>{changeOptionAccount(item.value)}} labelField="label"
+    <Dropdown data={options} placeholder="Tipo conta" placeholderStyle={{color:"white"}} value={optionAccount} style={{width:130, color:"white"}} onChange={item=>{changeOptionAccount(item.value)}} labelField="label"
     valueField="value"/>
     )
 }

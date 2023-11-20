@@ -13,7 +13,7 @@ export default function LoginUser({ navigation }) {
 
     const [cpfCnpj, setCpfCnpj] = useState('')
     const [password, setPassword] = useState('')
-    const {tokenUser, userLog, informationsAccountUser} = useContext(ApiContext)
+    const {tokenUser, userLog,cardUserLog, informationsAccountUser} = useContext(ApiContext)
    
     async function logar (){
         try{
@@ -28,12 +28,12 @@ export default function LoginUser({ navigation }) {
             try {
                 api.defaults.headers.Authorization = `Token ${response.data.auth_token}`
                 api.get("users/me/").then(function(response){
-                    console.log(response.data.id)
-                    userLog(response.data.id, response.data.first_name, response.data.email, response.data.surname )
+                    console.log(response.data.username)
+                    userLog(response.data.id, response.data.first_name, response.data.email, response.data.username )
                   
                 })
                 try {
-                    api.get(`account/?${cpfCnpj.length == 11? 'physical_person=': 'juridic_person='+cpfCnpj}`).then(function(response){
+                    api.get(`account/?${cpfCnpj.length == 11? 'physical_person='+cpfCnpj: 'juridic_person='+cpfCnpj}`).then(function(response){
                         console.log(response.data[0])
                         
                         informationsAccountUser(
@@ -43,6 +43,10 @@ export default function LoginUser({ navigation }) {
                             response.data[0].number_verificate,
                             response.data[0].limit
                         
+                        )
+                        cardUserLog(
+                            response.data[0].account_card[0].number,
+                            response.data[0].account_card[0].validity
                         )
                         navigation.navigate("First")
                     }).catch(function(error){

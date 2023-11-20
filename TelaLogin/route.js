@@ -33,8 +33,9 @@ export default function App() {
 
 
         <stack.Navigator>
+        <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
         <stack.Screen name='Loan' component={ScreenLoan} options={{ headerShown: false }} />
-          <stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+       
           <stack.Screen name='First' component={FirstScreen} options={{ headerShown: false }} />
           <stack.Screen name='ScreenCard' component={ScreenCards} options={{ headerShown: false }} />
       

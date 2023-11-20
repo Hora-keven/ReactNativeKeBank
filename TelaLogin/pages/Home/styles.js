@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
 
     txt:{
-        fontFamily:'Dela gothic alone',
+       
         textAlign:'center',
         fontSize:76,
         color:'white',
@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
 
     txtInformation:{
         color:'white',
-        fontFamily:'inter',
+        
         fontSize:22,
         marginTop:25,
     },
 
     secondPartName:{
-        fontFamily:'inter',
+       
         color:'white',
         fontSize:76
     },
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     },
     
     secondInformationTxt:{
-        fontFamily:'inter',
+      
         fontSize:22,
         marginTop:25,
         color:'#BDE3FF',

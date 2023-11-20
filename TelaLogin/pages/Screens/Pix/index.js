@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import styles from './stylesP'
 import { Ionicons } from '@expo/vector-icons';
-
+import { Alert } from 'react-native';
 import React, { useContext, useRef, useState } from 'react';
 import { TextInputMask } from 'react-native-masked-text'
 import { Modalize } from 'react-native-modalize';
@@ -13,13 +13,15 @@ export default function ScreenPix({ navigation }) {
     const [keyPix, setKeyPix] = useState("")
     const[value,setValue]=useState("")
     const {userAccount} = useContext(ApiContext)
+   
 
     const noMaskPix = keyPix.replace(/\.|-/gm, "")
     const maskValue = value.replace("R$", "").replace(/\./g, '');
     
+  
     const sendPix =() =>{
         try {
-            api.get(`account/?${noMaskPix.length == 11?'physical_person=':"juridic_person="+noMaskPix}`).then(function(response){
+            api.get(`account/?${noMaskPix.length >= 11?'physical_person='+noMaskPix:"juridic_person="+noMaskPix}`).then(function(response){
                 console.log(response.data[0])
                 console.log(noMaskPix)
 
@@ -31,14 +33,23 @@ export default function ScreenPix({ navigation }) {
         
                 }).then(function(response){
                     console.log(response.data)
+
                 }).catch(function(error){
-                    console.error(error)
+                   
+                    if (error.response && error.response.status === 404) {
+                     
+                        Alert.alert('Saldo insuficiente!', 'Saldo disponivel é de: '+userAccount.limit);
+                      } else {
+                       
+                        Alert.alert('Erro', 'Ocorreu um erro. Por favor, tente novamente.');
+                      }
                 })
 
             }).then(function(response){
-                console.log(response.data)
+              
             }).catch(function(error){
                 console.error(error)
+              
             })
            
 
@@ -47,14 +58,6 @@ export default function ScreenPix({ navigation }) {
         }
     
     }
-
-    
-
-    const Contatos = ({ nome }) => (
-        <View style={styles.function}>
-            <Text style={styles.txtUser}>{nome}</Text>
-        </View>
-    )
 
     const modalizeRef = useRef(<Modalize />);
 
@@ -84,8 +87,8 @@ export default function ScreenPix({ navigation }) {
                 </View>
 
                 <View>
-                    <TouchableOpacity onPress={abrirModal}>
-                        <Ionicons style={styles.Arrowbutton} name="ios-arrow-forward" />
+                    <TouchableOpacity onPress={abrirModal} style={styles.Arrowbutton}>
+                        <Ionicons size={40} name="ios-arrow-forward" />
                     </TouchableOpacity>
                 </View>
 
@@ -112,15 +115,12 @@ export default function ScreenPix({ navigation }) {
                                 }}/>
 
                         <TouchableOpacity  style={styles.button} onPress={sendPix }>
-                           <Ionicons size={30} color={"white"} name="ios-arrow-forward" />
+                           <Ionicons size={40} color={"white"} name="ios-arrow-forward" />
                         </TouchableOpacity>
                     </View>
                 </Modalize>
-                <View>
-                    <Text style={styles.textTitle}>Contatos cadastrados</Text>
-                </View>
-         
-
+                
+            
                 <View style={styles.nameSlogan}>
                     <View style={styles.title}>
                         <Text style={styles.txt}>Ke</Text>

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
 
     txt:{
-        fontFamily:'Dela gothic alone',
+     
         left:4,
         fontSize:20,
         color:'black',
@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
  
     },
     firstName:{
-        fontFamily:'Dela gothic alone',
+    
         fontWeight:700,
         fontSize:20,
         color:'black',
     },
     secondPartName:{
-        fontFamily:'inter',
+      
         color:'black',
         fontSize:20,
     },
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
-        top:80,
+        top:155,
         left:140
     },
 
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         height:'9%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        bottom:50,
+        bottom:120,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     },
     containerImgF:{
         width:100,
+     
         
     },
     containerImg:{
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     },
 
     text:{
-        fontFamily:'Raleway sans Serif',
+    
         fontSize:23,
         top:10,
         left:10,
@@ -112,8 +113,8 @@ const styles = StyleSheet.create({
   
     },
     textT:{
-        fontFamily:'Raleway sans Serif',
-        fontSize:13,
+    
+        fontSize:18,
         left:30,
         color:'black'
     },
@@ -130,7 +131,6 @@ const styles = StyleSheet.create({
    
     Arrowbutton:{
         color:'black',
-        fontFamily:'inter',
         fontSize:22,
         left:155,
         top:50,

@@ -12,7 +12,7 @@ import api from "../../Api/Api.jsx";
 
 
 export default function Juridic({ navigation }) {
-    const { token, userLog, tokenUser, user, optionAccount, informationsAccountUser} = useContext(ApiContext)
+    const { token, userLog, tokenUser, user, optionAccount, informationsAccountUser, cardUserLog} = useContext(ApiContext)
     const [openDate, setOpenDate] = useState("")
     const [cnpj, setCnpj] = useState("")
     const [stateRegistration, setStateRegistration] = useState("")
@@ -41,7 +41,7 @@ export default function Juridic({ navigation }) {
                 phone_number:number
 
             }).then(function (response) {
-            userLog(response.data.id, name, email, cnpj)
+            userLog(response.data.id, name, email, response.data.username)
           
             try{
                 api.post('auth/token/login/',{
@@ -70,6 +70,7 @@ export default function Juridic({ navigation }) {
         }
 
         const createAccount = async () =>{
+            console.log(noMask)
                        
             try{
                 api.defaults.headers.Authorization = `Token ${token}`
@@ -89,40 +90,43 @@ export default function Juridic({ navigation }) {
                             physical_person:null
 
                         }).then(function(response){
+                            console.log(response.data)
                             try{
-                                api.post("address/",{
-                                    city:city,
-                                    neighborhood:neighborhood,
-                                    federative_unit:federative_unit,
-                                    pac:pac,
-                                    street:street,
-                                    public_place:public_place,
-                                    juridic_person:noMask
-        
-                                }).then(function(response){
-                                    console.log(response.data)
-                                    navigation.navigate('First')
-                   
-                                })
-                                try {
-                                    api.get("account/?juridic_person="+noMask).then(function(response){
-                                        console.log(response.data[0].id)
-                                        informationsAccountUser(
-                                            response.data[0].id,
-                                            response.data[0].agency,
-                                            response.data[0].number,
-                                            response.data[0].number_verificate,
-                                            response.data[0].limit
+                                api.get(`account/?juridic_person=${noMask}`).then(function(response){
+
+                                    informationsAccountUser(
+                                        response.data[0].id,
+                                        response.data[0].agency,
+                                        response.data[0].number,
+                                        response.data[0].number_verificate,
+                                        response.data[0].limit
+                                    
+                                    )
+                                    console.log(response.data[0].id)
+                                    api.post("card/",{
+                                        account:response.data[0].id
+    
+                                    }).then(function(response){
+                                        api.post("address/",{
+                                            city:city,
+                                            neighborhood:neighborhood,
+                                            federative_unit:federative_unit,
+                                            pac:pac,
+                                            street:street,
+                                            public_place:public_place,
+                                            juridic_person:user.cpfCnpj
+                
+                                        }).then(function(response){
+                                            console.log(response.data)
+                                            navigation.navigate("First")
+                                        })
                                         
+                                        cardUserLog(
+                                            response.data[0].number,
+                                            response.data[0].validity
                                         )
-                                        navigation.navigate("First")
-                                    }).catch(function(error){
-                                        console.error(error)
                                     })
-                                      
-                                } catch (error) {
-                                    console.error(error)
-                                }
+                                })
         
                             }catch(error){
                                 console.error(error);
@@ -186,11 +190,11 @@ export default function Juridic({ navigation }) {
                 <TextInput style={styles.input} value={password} onChangeText={(text)=>setPassword(text)} placeholder="Create your password: " placeholderTextColor={'white'} />
                 <TextInput style={[styles.input, {width:210}]}  value={pac} onChangeText={(text)=>setPac(text)} placeholder="Put your pac: " placeholderTextColor={'white'} />
 
-                <View style={{position:"relative", left:230, bottom:27.5}}>
-                    <TouchableOpacity onPress={searchPac} style={{borderRadius:2, borderWidth:1, borderColor:"white", padding:4, width:55}}><Text style={{color:"white"}}>Buscar</Text></TouchableOpacity>
+                <View style={{position:"relative", left:227, bottom:27.5}}>
+                    <TouchableOpacity onPress={searchPac} style={{borderRadius:2, borderWidth:1, borderColor:"white", padding:4, width:60}}><Text style={{color:"white"}}>Buscar</Text></TouchableOpacity>
                 </View>
 
-                <TextInput style={[styles.input, {position:"relative", bottom:27}]} value={public_place} onChangeText={(text)=>setPublic_space(text)} placeholder="Put your public space: " placeholderTextColor={'white'} />
+                <TextInput style={[styles.input, {position:"relative", bottom:30}]} value={public_place} onChangeText={(text)=>setPublic_space(text)} placeholder="Put your public space: " placeholderTextColor={'white'} />
             </View>
             <View>
                 <TouchableOpacity onPress={createAccount} style={[styles.Arrowbutton, {top:170, left:130}]}>

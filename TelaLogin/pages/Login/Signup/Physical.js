@@ -11,7 +11,7 @@ import DropdownChoice from "../../../components/dropdown.jsx";
 import apiCep from "../../Api/ApiCep";
 
 export default function Physical({ navigation }) {
-    const {user, userLog, tokenUser, token, optionAccount, cardUserLog} = useContext(ApiContext)
+    const {user, userLog, tokenUser, token, optionAccount, cardUserLog, informationsAccountUser} = useContext(ApiContext)
     const [bornDate, setBornDate] = useState("")
     const [cpf, setCpf] = useState("")
     const [rg, setRg] = useState("")
@@ -51,49 +51,55 @@ export default function Physical({ navigation }) {
                     street:street,
                     public_place:public_place,
                     physical_person:noMask
-                })
-            }catch(error){
-                console.error(error);
-            }
-
-            try {
-                api.post('account/',{
-                    type_account:optionAccount,
-                    physical_person:noMask
 
                 }).then(function(response){
-
                     try {
-                        api.get("account/?physical_person="+noMask).then(function(response){
-                            console.log(response.data[0].id)
-                            informationsAccountUser(
-                                response.data[0].id,
-                                response.data[0].agency,
-                                response.data[0].number,
-                                response.data[0].number_verificate,
-                                response.data[0].limit
-                            
-                            )
-                            
-                            api.post("card/",{
-                                account:response.data[0].id
-                            }).then(function(response){
-                                console.log(response.data)
-                                cardUserLog(response.data.number, response.data.validity)
-                            })
-                            navigation.navigate("First")
-                        }).catch(function(error){
-                            console.error(error)
+                        api.post('account/',{
+                            type_account:optionAccount,
+                            physical_person:noMask
+        
+                        }).then(function(response){
+        
+                            try {
+                                api.get("account/?physical_person="+noMask).then(function(response){
+                                    console.log(response.data[0].id)
+                                    informationsAccountUser(
+                                        response.data[0].id,
+                                        response.data[0].agency,
+                                        response.data[0].number,
+                                        response.data[0].number_verificate,
+                                        response.data[0].limit
+                                    
+                                    )
+                                    
+                                    api.get("card/",{
+                                        account:response.data[0].id
+
+                                    }).then(function(response){
+                                        console.log(response.data)
+                                        api.get("card/?account="+response.data.account)
+                                        cardUserLog(response.data.number, response.data.validity)
+                                    }).then(function(response){
+                                        console.log(response.data)
+                                        navigation.navigate("First")
+                                    })
+                                
+                                }).catch(function(error){
+                                    console.error(error)
+                                })
+                                  
+                            } catch (error) {
+                                console.error(error)
+                            }
                         })
-                          
                     } catch (error) {
                         console.error(error)
                     }
                 })
-            } catch (error) {
-                console.error(error)
+            }catch(error){
+                console.error(error);
+                console.log("eeee")
             }
-            navigation.navigate('First')
 
           })
           .catch(function (error) {
@@ -118,7 +124,7 @@ export default function Physical({ navigation }) {
                 phone_number:number
 
             }).then(function (response) {
-            userLog(response.data.id, name, email, lastName)
+            userLog(response.data.id, name, email, cpf)
           
             try{
                 api.post('auth/token/login/',{
@@ -155,10 +161,13 @@ export default function Physical({ navigation }) {
                 setFederative_unit(response.data.uf)
                 setNeighborhood(response.data.bairro)
                 setStreet(response.data.logradouro)
+
                 createUser()
 
             }).catch(function(error){
                 console.error(error)
+                console.log("error")
+             
             })
                
             }
@@ -185,11 +194,11 @@ export default function Physical({ navigation }) {
                 <TextInput style={[styles.input, {width:200}]}  value={pac} onChangeText={(text)=>setPac(text)} placeholder="Put your pac: " placeholderTextColor={'white'} />
 
                 <View style={{position:"relative", left:215, bottom:27.5}}>
-                    <TouchableOpacity onPress={searchPac} style={{borderRadius:2, borderWidth:1, borderColor:"white", padding:4, width:55}}><Text style={{color:"white"}}>Buscar</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={searchPac} style={{borderRadius:2, borderWidth:1, borderColor:"white", padding:4, width:60}}><Text style={{color:"white"}}>Buscar</Text></TouchableOpacity>
                 </View>
-                <TextInput style={[styles.input, {position:"relative", bottom:27}]} value={public_place} onChangeText={(text)=>setPublic_space(text)} placeholder="Put your public space: " placeholderTextColor={'white'} />
+                <TextInput style={[styles.input, {position:"relative", bottom:32}]} value={public_place} onChangeText={(text)=>setPublic_space(text)} placeholder="Put your public space: " placeholderTextColor={'white'} />
             </View>
-            <View style={{top:140, position:"relative"}}>
+            <View style={{top:130, position:"relative"}}>
                <DropdownChoice   />
             </View>
             <View style={{display:"flex", alignItems:"flex-start"}}>

@@ -8,7 +8,8 @@ import { ApiContext } from "../pages/context/APicontext";
 import { useContext } from "react";
 
 export default function Card(){
-    const {userAccount, user, cardUser} = useContext(ApiContext)
+    const { user, cardUser} = useContext(ApiContext)
+    const numberFOrmated = cardUser.number.replace(/(.{4})/g, "$1 ")
     return(
         <View >
             <View style={styles.nameSlogan}>
@@ -18,11 +19,11 @@ export default function Card(){
                     <Image source={nfc} style={styles.nfcC}/>
                 </View>
             <Image source={chip} style={styles.chipC}/>
-            <Text style={styles.number}>{cardUser.number}</Text>
+            <Text style={styles.number}>{numberFOrmated == null?0:numberFOrmated}</Text>
             <Text style={styles.nameCard}>{user.nameOrCompanyName}</Text>
             <Text style={ {top:9, position:"relative", left:140, color:"white", fontSize:18,}}>{cardUser.validity}</Text>
 
-            <Image source={flagCard} style={ {left:245}}/>
+            <Image source={flagCard} style={ {left:250, bottom:20}}/>
 
             </View>
         </View>

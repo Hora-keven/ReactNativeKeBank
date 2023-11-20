@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%', 
-        bottom:50,
+        bottom:90,
         left:125
     },
     secondPartName:{
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         fontFamily:'inter',
         fontSize:22,
         bottom:340,
-        right:120
+        right:100
     },
    
     inputs:{
@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
     },
     containerImg:{
         width:70,
-        height:'13%',
+        height:70,
         position:'relative',
         bottom:290,
-        right:255,
+        right:210,
         marginTop:410,
         backgroundColor:'#155e85',
         borderRadius:35,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         height:'10%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        bottom:669,
+        bottom:589,
         position:'absolute',
         shadowColor: "#000",
         shadowOffset: {
@@ -127,11 +127,11 @@ const styles = StyleSheet.create({
     window:{
         width:'88%',
         height:'70%',
-        marginRight:3,
-        margin:0,
+       
         justifyContent:'center',
         alignItems:'center',
-        bottom:160
+        bottom:120,
+        backgroundColor:"#fff"
     },
 
     text:{
@@ -164,24 +164,18 @@ const styles = StyleSheet.create({
     },
 
     function:{
-        marginTop:10,
-        backgroundColor:'#fff',
+        marginTop:1.5,
+  
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
         width:168,
-        height:80, 
+        height:90, 
+        marginBottom:7,
         borderRadius:7,
         marginLeft:3.5,
-        bottom:10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+       borderColor:"#c2c2c2",
+       borderWidth:3,
         
     },
     modal:{
@@ -194,7 +188,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#155e85',
         width:"99%",
         height:"40%",
-        bottom:67,
+        bottom:119,
         borderRadius:7,
         position:'relative',
         alignItems:'center',
