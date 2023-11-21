@@ -75,7 +75,7 @@ export default function ScreenLoan({navigation}) {
             }).then(function(response){
                 if (response.status === 201) {
                    
-                    Alert.alert("Empréstimo realizado com sucesso!!", "O valor pedido é maior que foi de: "+value)
+                    Alert.alert("Empréstimo realizado com sucesso!!", "O valor solicitado foi: "+value)
                   }
         
                 console.log(response.status)
