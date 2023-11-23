@@ -5,7 +5,7 @@ import { Alert } from 'react-native';
 import React, { useContext, useRef, useState } from 'react';
 import { TextInputMask } from 'react-native-masked-text'
 import { Modalize } from 'react-native-modalize';
-import api from '../../Api/Api';
+import api from  '../../Api/Api';
 import { ApiContext } from '../../context/APicontext';
 
 export default function ScreenPix({ navigation }) {
@@ -77,8 +77,8 @@ export default function ScreenPix({ navigation }) {
                 <View style={styles.inputs}>
                  
                     <TextInputMask
-                        type='only-numbers'
-                        maxLength={14}
+                        type={keyPix.length > 13?"cnpj":"cpf"}
+                      
                         style={[styles.input, , {borderBottomColor:"black", borderBottomWidth:1, color:"black"}]}
                         value={keyPix}
                         placeholder='Digite a chave do pix:'

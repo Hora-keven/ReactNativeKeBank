@@ -3,12 +3,12 @@ import styles from "./styles";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import { useContext, useState } from 'react';
-import apiCep from "../../Api/ApiCep.jsx";
+import apiCep from "./../../../Api/ApiCep.jsx";
 
-import { ApiContext } from "../../context/APicontext";
+import { ApiContext }  from "../../../context/APicontext";
 import DropdownChoice from "../../../components/dropdown";
 import {TextInputMask} from "react-native-masked-text";
-import api from "../../Api/Api.jsx";
+import api from "./../../../Api/Api.jsx";
 
 
 export default function Juridic({ navigation }) {

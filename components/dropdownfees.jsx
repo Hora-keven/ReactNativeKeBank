@@ -1,5 +1,5 @@
 import {Dropdown} from "react-native-element-dropdown";
-import { ApiContext } from "../pages/context/APicontext";
+import { ApiContext } from "./../TelaLogin/context/APicontext";
 import { useContext } from "react";
 
 function DropdownFees(){

@@ -2,10 +2,10 @@ import { View, Text, TextInput, Handle } from "react-native";
 import styles from "./stylesUser";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
-import api from "../../Api/Api";
+import api from "../../../Api/Api"; 
 import { useContext, useState } from "react";
 import * as Animatable from 'react-native-animatable';
-import { ApiContext } from "../../context/APicontext";
+import { ApiContext } from "./../../../context/APicontext";
 import { TextInputMask } from 'react-native-masked-text'
 import { Alert } from "react-native";
 
@@ -13,7 +13,7 @@ export default function LoginUser({ navigation }) {
 
     const [cpfCnpj, setCpfCnpj] = useState('')
     const [password, setPassword] = useState('')
-    const {tokenUser, userLog,cardUserLog, informationsAccountUser} = useContext(ApiContext)
+    const {tokenUser, userLog, cardUserLog, informationsAccountUser} = useContext(ApiContext)
    
     async function logar (){
         try{
