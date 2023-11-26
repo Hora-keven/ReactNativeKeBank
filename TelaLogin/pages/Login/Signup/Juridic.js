@@ -33,7 +33,7 @@ export default function Juridic({ navigation }) {
         try{
 
             api.post('users/',{
-                username:noMask,
+                cpf_cnpj:noMask,
                 first_name:name,
                 surname:null,
                 email:email,
@@ -41,11 +41,11 @@ export default function Juridic({ navigation }) {
                 phone_number:number
 
             }).then(function (response) {
-            userLog(response.data.id, name, email, response.data.username)
+            userLog(response.data.id, name, email, response.data.cpf_cnpj)
           
             try{
                 api.post('auth/token/login/',{
-                    username:noMask,
+                    cpf_cnpj:noMask,
                     password:password
         
               }).then(function(response){

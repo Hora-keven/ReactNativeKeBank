@@ -29,7 +29,7 @@ export default function FirstScreen({ navigation }) {
         api.get(`account/?${(user.cpfCnpj).length == 11? "physical_person="+user.cpfCnpj:"juridic_person="+user.cpfCnpj}`).then(function(response){
             setLimit(response.data[0].limit)
         })
-    },[1])
+    })
     const funcaoApp = [
         {
             id: 1,

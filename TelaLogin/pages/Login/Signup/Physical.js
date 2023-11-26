@@ -112,7 +112,7 @@ export default function Physical({ navigation }) {
         try{
 
             api.post('users/',{
-                username:cpf,
+                cpf_cnpj:cpf,
                 first_name:name,
                 surname:lastName,
                 email:email,
@@ -124,7 +124,7 @@ export default function Physical({ navigation }) {
           
             try{
                 api.post('auth/token/login/',{
-                    username:cpf,
+                    cpf_cnpj:cpf,
                     password:password
         
               }).then(function(response){

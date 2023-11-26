@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
       padding:0,
       margin:0,
       width:'100%',
-      height:840,
-      marginTop:60
+      height:900,
+     
     },
 
     txt:{
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#155e85',
         alignItems:'center',
         display:'flex',
-        justifyContent:'center'
+        justifyContent:'center',
+       
     },
 
     firstName:{
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
-        bottom:170,
+        bottom:185,
         left:140
     },
   
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
         height:'9%',
         backgroundColor:'#155e85',
         borderRadius:8,
-        marginTop:120,
+        marginTop:225,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
