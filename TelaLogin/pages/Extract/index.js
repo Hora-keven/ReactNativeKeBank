@@ -13,10 +13,12 @@ export default function ScreenExtract({ navigation }) {
     const { userAccount, loan } = useContext(ApiContext)
     const [movimentation, setMovimentation] = useState([])
     const [searchUser, setSearchUser] = useState("")
-    const [translateTitle, setTranslateTitle] = useState("")
+
+
     useEffect(() => {
         api.get("movimentation/?account=" + userAccount.id).then(function (response) {
             console.log(response.data)
+            
             const newObjects = response.data.map(each => ({
                 value: each.value,
                 state: each.state,
@@ -39,7 +41,7 @@ export default function ScreenExtract({ navigation }) {
             <Text style={styles.txt}>R${value}</Text>
             <Text style={styles.txt}>{date}</Text>
            
-            <MaterialCommunityIcons name={title == "received"?"transfer-up":"transfer-down"} size={30} style={{ color: "#155e85", bottom: 35 }} />
+            <MaterialCommunityIcons name={title == "Transferência enviada"?"transfer-up":"transfer-down"} size={30} style={{ color: "#155e85", bottom: 35 }} />
         </View>
 
     )
@@ -81,7 +83,7 @@ export default function ScreenExtract({ navigation }) {
                     {movimentation.map((item) =>
                         <View style={styles.window}>
 
-                            <View style={styles.containerTrans}>
+                            <View >
                                
                                 <Historic title={item.state} value={item.value} date={item.date} />
                             </View>

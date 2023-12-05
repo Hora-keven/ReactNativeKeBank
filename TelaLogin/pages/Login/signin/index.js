@@ -24,11 +24,13 @@ export default function LoginUser({ navigation }) {
     
           }).then(function(response){
             tokenUser(response.data.auth_token)
+
+           
             
             try {
                 api.defaults.headers.Authorization = `Token ${response.data.auth_token}`
                 api.get("users/me/").then(function(response){
-                    console.log(response.data.username)
+                 
                     userLog(response.data.id, response.data.first_name, response.data.email, response.data.cpf_cnpj )
                   
                 })
@@ -62,9 +64,11 @@ export default function LoginUser({ navigation }) {
             }
           
           }).catch(function (error) {
-            console.error(error);
             if( error.response.status === 400){
                 Alert.alert("Usuário não encontrado!", "Verifique seu usuario e senha!")
+            }
+            else if(error.response.status === 429){
+                Alert.alert("Erro ao encontrar usuário!", "Espere um minuto para tentar novamente!")
             }
           });
 
