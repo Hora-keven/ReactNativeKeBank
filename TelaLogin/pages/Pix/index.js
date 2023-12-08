@@ -28,6 +28,7 @@ export default function ScreenPix({ navigation }) {
                 value: parseFloat(maskValue),
                 to_account: sendToAccount.id
 
+
             }).then(function (response) {
                 console.log(response.data)
 
@@ -112,7 +113,7 @@ export default function ScreenPix({ navigation }) {
 
 
                         <TextInputMask
-                            style={[styles.input, { borderBottomColor: 'white', borderBottomWidth: 2, color:"white" }]}
+                            style={[styles.input, { borderBottomColor: 'white', borderBottomWidth: 2 }]}
                             type={'money'}
                             options={{
 

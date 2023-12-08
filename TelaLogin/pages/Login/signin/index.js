@@ -30,13 +30,13 @@ export default function LoginUser({ navigation }) {
             try {
                 api.defaults.headers.Authorization = `Token ${response.data.auth_token}`
                 api.get("users/me/").then(function(response){
-                    console.log(response.data)
+                 
                     userLog(response.data.id, response.data.first_name, response.data.email, response.data.cpf_cnpj )
                   
                 })
                 try {
                     api.get(`account/?${(noMask.length) == 11? 'physical_person='+noMask: 'juridic_person='+noMask}`).then(function(response){
-                        console.log(response.data[0])
+                        console.log(response.data)
                         
                         informationsAccountUser(
                             response.data[0].id,
